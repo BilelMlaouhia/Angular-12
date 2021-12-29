@@ -1,0 +1,24 @@
+this Application was created using Angular 12 and json page as backend (db.json)
+
+CRUD using Angular HttpClient Module, Router, and Angular features
+
+Bootstrap 5.1.x for CSS designe
+
+using Subjects, and Observables of RxJs
+
+
+Note: this Application is designed for learning purpose to help you understand Angular better
+
+please be sure :
+
+-to use pcImage folder to add a picture or a photo to a new computer Item
+-to use userImage folder to add picture or a photo for a new User
+
+run the backend server by typing inside your project the command "json-server db.json"
+
+
+to contact me:
+
+bilelmlawhia@gmail.com
+mobile/WhatsApp: 0021620606983
+
