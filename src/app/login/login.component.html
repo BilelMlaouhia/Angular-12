@@ -1,0 +1,48 @@
+<div class="container">
+<br><br>
+    <form #f="ngForm">
+        <div class="form-group" >
+          <label for="exampleInputEmail1" [class.text-success]="email.valid && email.dirty && email.touched" [class.text-danger]="email.invalid && email.touched" >Email address</label>
+          <input type="email" class="form-control" [class.is-invalid]="email.invalid || (email.pristine && email.touched)"
+          [class.is-valid]="email.valid && email.touched" pattern="^([A-Za-z0-9._%+-]{3,30})+@[A-Za-z0-9.-]+\.[A-Za-z0-9._%+-]{2,9}$"
+          required #email="ngModel" name="email" email  ngModel  placeholder="Enter email" (change)="onRestore() ">
+          <small id="emailHelp" class="form-text text-muted " *ngIf="email.valid && email.dirty">We'll never share your email with anyone else.</small> <br>
+          <div *ngIf="email.invalid && email.touched ">
+            
+            <small class="text-danger" *ngIf="email.errors?.required  ">  email is required <br></small>
+            <small class="text-danger" *ngIf=" email.errors?.pattern" >email format should be: test@test.exemple<br></small> 
+                  
+          </div> 
+          <div *ngIf="email.valid && email.touched && f.valid && posted && email.dirty">
+            <small [class.text-danger]="email_err==='wrong email adress!'" [class.text-success]="email_err==='correct email adress'" > {{email_err}} <br></small>
+          </div>
+          
+        <br>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1" [class.text-success]="password.touched && password.valid" [class.text-danger]="password.touched && password.invalid" >Password</label>
+          <input type="password" class="form-control" name="password" required minlength="4" #password="ngModel" ngModel placeholder="Password"
+           [class.is-valid]="password.valid && password.touched" [class.is-invalid]="password.touched && password.invalid" >
+        </div>
+        <div>
+          <small class="text-danger" *ngIf="password.errors?.required && password.touched">password is required</small> 
+          <small class="text-danger" *ngIf="password.touched && !password.errors?.required && password.invalid">password might be at last 4 caracters or numbers</small>
+        </div>
+        <div *ngIf="password.valid && password.touched && f.valid && posted && password.dirty">
+          <small [class.text-danger]="password_err==='wrong password!'" [class.text-success]="password_err==='correct password'"> {{password_err}} <br></small>
+        </div>
+        <br><br>
+       <div >
+        <button type="submit" class="btn btn-primary " (click)=" postDetails(f.value)" [disabled]="f.invalid" >Login</button>
+        <button class="btn btn-info" routerLink="/signin">Sign up</button>
+       </div>
+      </form>
+</div> 
+
+<!-- <form #f1="ngForm"> -->
+  <!-- <input type="text" name="age" #age ngModel> -->
+  <!-- <p style="color: brown;">{{Mohamed}} </p> -->
+  <!-- <button class="btn btn-info" (click)="valueOfInput(f1.value) ">submit</button> -->
+  <!-- <input [(ngModel)]="Mohamed" #ref= 'ngModel' name="ref">
+  <p  > {{Mohamed}} </p>
+</form> -->

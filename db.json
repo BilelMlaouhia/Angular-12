@@ -1,0 +1,90 @@
+{
+  "users": [
+    {
+      "id": 2,
+      "fullName": "Omar Mlawhia",
+      "section": "Mécanique",
+      "password": "omar",
+      "image": "r.jpg",
+      "level": "three",
+      "email": "omar@gmail.com",
+      "className": "Mec 2 eng"
+    },
+    {
+      "id": 3,
+      "fullName": "oumaima",
+      "className": "dsi2",
+      "email": "oumaima@gmail.com",
+      "level": "2",
+      "section": "informatique",
+      "password": "Breakpoint2020",
+      "image": "o.jpg"
+    },
+    {
+      "id": 4,
+      "fullName": "Med Mlaouhia",
+      "className": "Ineps 1",
+      "email": "mohamed@gmail.com",
+      "level": "9",
+      "section": "sport ",
+      "password": "Azertyu9",
+      "image": "r.jpg"
+    }
+  ],
+  "computers": [
+    {
+      "nom": "Mac",
+      "prix": "3400",
+      "quantity": "8",
+      "description": "This What I call laptop :)",
+      "image": "30111662.jpg",
+      "userId": 2,
+      "id": 9
+    },
+    {
+      "nom": "mac",
+      "prix": 450,
+      "quantity": 2,
+      "description": "blalal    djqdjkhkqdlo ",
+      "image": "images (1).jpg",
+      "userId": 2,
+      "id": 10
+    },
+    {
+      "nom": "mac",
+      "prix": 5000,
+      "quantity": 5,
+      "description": "ram:16GB\nMEMOIRE:256GB\n",
+      "image": "500.jpg",
+      "userId": 3,
+      "id": 11
+    },
+    {
+      "nom": "Magico",
+      "prix": 320,
+      "quantity": 8,
+      "description": "blalblalalala  dldldldl",
+      "image": "desktop.jpg",
+      "userId": 2,
+      "id": 12
+    },
+    {
+      "nom": "Ordinateur portable",
+      "prix": 700,
+      "quantity": 12,
+      "description": "le plus puissant de monde",
+      "image": "800.jpg",
+      "userId": 4,
+      "id": 13
+    },
+    {
+      "nom": "HP",
+      "prix": 1000,
+      "quantity": 3,
+      "description": "1 téra disque dur et 16 Go Ram",
+      "image": "images (4).jpg",
+      "userId": 2,
+      "id": 14
+    }
+  ]
+}

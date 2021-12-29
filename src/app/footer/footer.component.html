@@ -1,0 +1,28 @@
+<!-- 
+
+<br>
+<div class="container">
+<form [formGroup]="formGroupTry">
+
+    <label for="nom"  [class.text-danger]="formGroupTry.get('nom')?.errors?.pattern">nom </label> <br>
+<input type="text" formControlName="nom" class="form-control" [class.is-invalid]="formGroupTry.get('nom')?.invalid " > <br><br> {{formGroupTry.get('nom')?.value}} <br>
+<div *ngIf="formGroupTry.get('nom')?.invalid && formGroupTry.get('nom')?.touched">
+<small class="text-danger" *ngIf="formGroupTry.get('nom')?.errors?.required"> nom is required<br></small>
+<small class="text-danger" *ngIf="formGroupTry.get('nom')?.errors?.minlength"> nom minlength 3 caracters<br></small>
+<small class="text-danger" *ngIf="formGroupTry.get('nom')?.errors?.pattern"> nom format Test<br></small>
+</div>
+
+
+<label for="prenom">prenom</label><br>
+<input type="text" formControlName="prenom" class="form-control"><br><br> {{formGroupTry.value.prenom}} <br>
+<label for="age">age</label><br>
+<input type="text" formControlName="age" class="form-control"> <br> {{formGroupTry.value.age}} <br> <br>
+{{formGroupTry.get('nom')?.errors?.required}}
+
+
+
+
+</form>
+
+
+</div> -->

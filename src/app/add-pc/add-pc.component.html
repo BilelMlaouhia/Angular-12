@@ -1,0 +1,68 @@
+
+<div class="container">
+    <br><br><br>
+    <div class="form-group" >
+      <div class="alert-success" *ngIf="added">the item added to Your Data-Base</div>
+        <form #f="ngForm" (submit)="onPostComputer(f) " >
+          <div >
+          
+            <div class="form-group">
+           
+            <label for="name" [class.text-success]="name.valid && name.touched" [class.text-danger]="name.invalid && name.touched"> <b>Nom de PC</b></label>
+              <input type="text" class="form-control" name="name" #name="ngModel" ngModel placeholder="computer's Name" required
+              [class.is-valid]="name.touched && name.valid" [class.is-invalid]="name.touched && name.invalid"  >
+            </div>
+            <div *ngIf="(name.touched && name.invalid) ||(name.touched && name.pristine) ">
+              <small class="text-danger" >computer's name is required ! <br></small>
+            </div>
+            
+          <br>
+            <div class="form-group">
+             <label for="description" [class.text-success]="description.touched && description.valid" [class.text-danger]="description.touched && description.invalid" > <b>Description de PC</b></label>
+              <textarea class="form-control" name="description" required #description="ngModel" ngModel  maxlength="400" minlength="20"
+              [class.is-invalid]="description.touched && description.invalid" [class.is-valid]="description.touched && description.valid"  > 
+                Describe your Computer</textarea>
+            </div>
+            <div *ngIf="description.touched && description.invalid">
+              <small class="text-danger" *ngIf="description.errors?.required">description is required!! <br></small>
+              <small class="text-danger" *ngIf="description.errors?.minlength">use more words to describe your item please <br></small>
+            </div>
+            <br>
+            <div class="form-group">
+              <label for="price" [class.text-success]="price.valid && price.touched" [class.text-danger]="price.touched && price.invalid" ><b>Prix de PC</b></label>
+                <input type="number" class="form-control" name="price" required #price="ngModel" ngModel placeholder="price"
+                [class.is-invalid]="price.touched && price.invalid" [class.is-valid]="price.touched && price.valid" >
+            </div>
+              <div *ngIf="price.invalid && price.touched">
+                <small class="text-danger" *ngIf="price.errors?.required">price is required! <br></small>
+                <small class="text-danger" *ngIf="price.errors?.type">price might be a number! <br></small>
+              </div>
+            
+            <br>
+            <div class="form-group">
+              <label for="quantity" [class.text-danger]="quantity.invalid && quantity.touched" [class.text-success]="quantity.touched && quantity.valid"> <b>Quantités disponible</b></label>
+                <input type="number" class="form-control" name="quantity" required #quantity="ngModel" ngModel placeholder="quantity"
+                [class.is-invalid]="quantity.touched && quantity.invalid" [class.is-valid]="quantity.touched && quantity.valid">
+            </div>
+            <div *ngIf="quantity.invalid && quantity.touched">
+              <small class="text-danger" *ngIf="quantity.errors?.required">quantity is required! <br></small>
+              <small class="text-danger" *ngIf="quantity.errors?.type">quantity might be a number! <br></small>
+            </div>
+            <br>
+           
+            
+       
+          <input type="file" #image  (change)="onGetImage($event) "  >
+          <input type="text" hidden="true" #imageName name="imageName" >
+            <br><br>
+          <div *ngIf="selectedFile">
+            <img src="assets/pcImage/{{selectedFile}} " width="200 erm" >
+          </div> <br><br>
+ 
+          <button class="btn btn-success" type="submit" #btn [disabled]="f.invalid || f.untouched" >Save</button>
+
+         
+        </div>
+        </form>
+    </div>
+</div>

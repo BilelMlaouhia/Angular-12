@@ -1,0 +1,94 @@
+
+<div class="container">
+<br><br>
+    <form #f='ngForm' (submit)="onPostData(f.value)">
+        <div class="form-group">
+
+          <div class="form-group">
+            <label for="exampleInputEmail1" [class.text-danger]="email.touched && email.invalid || email_used" [class.text-success]="email.touched && email.valid && !email_used" >Email address</label>
+            <input type="email" class="form-control" onfocus="value=''" name="email" #email="ngModel" ngModel  placeholder="Enter email" required
+            [class.is-invalid]="email.touched && email.invalid || email_used" [class.is-valid]="email.touched && email.valid && !email_used" email pattern="^([A-Za-z0-9._%+-]{3,40})+@[A-Za-z0-9.-]+\.[A-Za-z0-9._%+-]{2,9}$"
+            (blur)="onCheckEmail(f.value.email)" (change)="onCheckEmail(f.value.email)" > 
+            <small id="emailHelp" class="form-text text-muted" >We'll never share your email with anyone else.</small><br>
+          </div>
+          <small class="text-danger" *ngIf="email.touched && email.valid && email_used"  >this email adress is used! <br></small>
+          <div *ngIf="email.touched && email.invalid">
+            <small class="text-danger" *ngIf="email.errors?.required"> Email is required</small>
+            <small class="text-danger" *ngIf="email.errors?.email  || email.errors?.pattern"> Email format exp@exp.dom</small>
+            <br>
+          </div>
+
+          <label for="exampleInputEmail1" [class.text-success]="fullName.touched && fullName.valid" [class.text-danger]="fullName.touched && fullName.invalid" >Full Name</label>
+          <input type="email" class="form-control" name="fullName" #fullName="ngModel" ngModel  placeholder="Full Name"
+          minlength="7" required [class.is-invalid]="fullName.touched && fullName.invalid" [class.is-valid]="fullName.touched && fullName.valid &&!fullName.errors" >
+        </div>
+        <div *ngIf="fullName.invalid && fullName.touched">
+         <small class="text-danger" *ngIf="fullName.errors?.required" >Full Name is required</small>
+         <small class="text-danger" *ngIf="fullName.errors?.minlength">Full Name should contain 6 caracters minimum with space between</small><br>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1" [class.text-danger]="section.touched && section.invalid" [class.text-success]="section.touched && section.valid" >Section</label>
+            <input type="text" class="form-control" name="section" #section="ngModel" ngModel  placeholder=" Section " required 
+            [class.is-invalid]="section.invalid && section.touched" [class.is-valid]="section.touched && section.valid">
+          </div>
+          <div *ngIf="section.touched && section.invalid">
+            <small class="text-danger" *ngIf="section.errors?.required"> Section is required</small><br>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputEmail1" [class.text-danger]="level.touched && level.invalid" [class.text-success]="level.touched && level.valid" >level</label>
+            <input type="text" class="form-control" name="level" #level="ngModel" ngModel placeholder="Level" required 
+            [class.is-invalid]="level.touched && level.invalid" [class.is-valid]="level.touched && level.valid && !level.errors?.required" >
+          </div>
+           <div *ngIf="level.touched && level.invalid">
+             <small class="text-danger" *ngIf="level.errors?.required"> Level is required </small><br>
+           </div>
+
+          <div class="form-group">
+            <label for="exampleInputEmail1" [class.text-danger]="className.touched && className.invalid" [class.text-success]="className.touched && className.valid"  >Classe Name</label>
+            <input type="text" class="form-control" name="className" #className="ngModel" ngModel placeholder="Classe Name" required minlength="3"
+            [class.is-invalid]="className.touched && className.invalid" [class.is-valid]="className.touched && className.valid" >
+          </div>
+          <div *ngIf="className.invalid && className.touched">
+            <small class="text-danger" *ngIf="className.errors?.required"> Classe Name is required</small> 
+            <small class="text-danger" *ngIf="className.errors?.minlength"> Classe Name should contain 3 caracters minimum</small> <br>
+          </div>
+
+       
+
+        <div class="form-group">
+          <label for="exampleInputPassword1" [class.text-danger]="password.touched && password.invalid"  [class.text-success]="password.touched && password.valid" >Password</label>
+          <input type="password" class="form-control" name="password" #password="ngModel" ngModel placeholder="Password" required maxlength="50" minlength="8"
+          [class.is-invalid]="password.touched && password.invalid"  [class.is-valid]="password.touched && password.valid"  pattern="^(?=.*[\d])(?=.*[A-Z])(?=.*[a-z])[a-zA-Z0-9]{8,}$">
+        </div>
+        <div *ngIf="password.touched && password.invalid">
+          <small class="text-danger" *ngIf="password.errors?.required"> password is required<br> </small>
+          <small class="text-danger" *ngIf="password.errors?.minlength ">  min length is 8<br></small>
+          <small class="text-danger" *ngIf="password.errors?.pattern "> at least one Capital letter  ,and one number <br> </small>
+          <small class="text-danger" > {{password.errors?.pattern.patternValue}} </small>
+          <br>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputPassword2"  [class.text-danger]="confirmPassword.touched && confirmPassword.valid && f.value.confirmPassword != f.value.password"  [class.text-success]="confirmPassword.touched && confirmPassword.valid && f.value.confirmPassword === f.value.password" >Confirm Password</label>
+          <input type="password" class="form-control" name="confirmPassword" #confirmPassword="ngModel" ngModel placeholder="confirmPassword" required maxlength="50" minlength="8" (change)="onCheckPassword(f.value) " 
+          [class.is-invalid]="confirmPassword.touched && confirmPassword.valid && f.value.confirmPassword != f.value.password "  [class.is-valid]="confirmPassword.touched && confirmPassword.valid && f.value.confirmPassword === f.value.password"
+          pattern="^(?=.*[\d])(?=.*[A-Z])(?=.*[a-z])[a-zA-Z0-9]{8,}$" required>
+        </div>
+        <div *ngIf="confirmPassword.touched || confirmPassword.dirty">
+          <small class="text-danger" *ngIf="f.value.confirmPassword != f.value.password" >passwords didn't matched !! <br></small>
+          <small class="text-success" *ngIf="f.value.confirmPassword === f.value.password" >passwords matched !! <br></small>
+        </div>
+   
+        <br>
+        <input type="file" #image ngModel (change)="onGetImage($event) ">
+      <div *ngIf="img" width="180 erm"   >
+        <img src="assets/userImage/{{img}} " >
+      </div>
+        <br><br>
+        <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Register</button>
+        <button type="submit" class="btn btn-info" routerLink="/login" >Login </button>
+      </form>
+
+</div>
+ 

@@ -1,0 +1,50 @@
+
+<div class="container">
+  <br><br>
+  <div class="alert alert-danger" *ngIf="err">
+    {{err}}
+  </div>
+    <br><br>
+        <form [formGroup]="userForm" (submit)="onUpdateUserAccount(userForm) ">
+            <div *ngIf="userUpdated" class="alert-success">Account Updated !!</div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Full Name</label>
+              <input type="email" class="form-control" name="fullName" #fullName formControlName="fullName"  >
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Section</label>
+                <input type="text" class="form-control"  formControlName="section" >
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">level</label>
+                <input type="text" class="form-control" pattern="^\d{3?} $" formControlName="level" >
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Classe Name</label>
+                <input type="text" class="form-control" formControlName="className" >
+              </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control"  formControlName="email">
+                <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control"  formControlName="password" >
+            </div>
+            <br>
+            <input type="file" #image  (change)="onGetImage($event) ">
+            <br><br>
+         
+            <div *ngIf="img" with="30px"  >
+            <img src="assets/userImage/{{img}} " width="180 erm" >
+          </div>
+          <div *ngIf="!img" with="30px"  >
+            <img [src]="'assets/userImage/'+userForm.value.image"width="180 erm">
+          </div>
+            <br><br>
+            <button type="submit" class="btn btn-primary"  >Submit</button>
+          </form>
+    
+    </div>
+    

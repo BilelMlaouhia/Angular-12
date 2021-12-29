@@ -1,0 +1,76 @@
+
+<div class="container">
+    <br><br><br>
+    <div class="alert-success" *ngIf="pcUpdated">Item updated !!</div>
+    <div class="form-group" >  
+
+        <form [formGroup]="formGroupComputer"  >
+         
+         
+            <div class="form-group">
+              {{formName('nom')?.value}}
+             <label for="name"  [class.text-success]="formName('nom')?.valid && formName('nom') ?.touched  "
+             [class.text-danger]="formGroupComputer.get('nom')?.invalid && formGroupComputer.get('nom')?.touched "> <b>Nom de PC</b></label>
+               <input type="text" class="form-control" formControlName="nom"  [class.is-valid]="formGroupComputer.get('nom')?.valid && formGroupComputer.get('nom')?.touched  "
+               [class.is-invalid]="formGroupComputer.get('nom')?.invalid && formGroupComputer.get('nom')?.touched "  >
+             </div>
+
+             <div *ngIf="formGroupComputer.get('nom')?.invalid && formGroupComputer.get('nom')?.touched ">
+               <small class="text-danger" *ngIf="formGroupComputer.get('nom')?.errors?.required">name is required!! <br></small>
+               <small class="text-danger" *ngIf="formGroupComputer.get('nom')?.errors?.minlength">minlength is 3 caracters <br></small>
+
+             </div>
+             
+           <br>
+             <div class="form-group">
+              <label for="description" [class.text-danger]="formName('description')?.invalid && formName('description')?.touched " 
+              [class.text-success]="formName('description')?.valid && formName('description')?.touched ">  <b>Description de PC</b></label>
+               <textarea class="form-control" formControlName="description"  [class.is-invalid]="formName('description')?.invalid && formName('description')?.touched "
+               [class.is-valid]="formName('description')?.valid && formName('description')?.touched " > Describe your Computer </textarea>
+             </div>
+             <div *ngIf="formName('description')?.invalid && formName('description')?.touched ">
+               <small class="text-danger" *ngIf="formName('description')?.errors?.required ">description is required <br></small>
+               <small class="text-danger" *ngIf="formName('description')?.errors?.minlength ">describe your product more <br></small>
+             </div>
+             <br>
+             <div class="form-group">
+               <label for="price"  [class.text-danger]="formName('prix')?.invalid && formName('prix')?.touched " 
+               [class.text-success]="formName('prix')?.valid && formName('prix')?.touched "><b>Prix de PC</b></label>
+                 <input type="text" class="form-control" formControlName="prix" placeholder="price"  [class.is-invalid]="formName('prix')?.invalid && formName('prix')?.touched "
+                 [class.is-valid]="formName('prix')?.valid && formName('prix')?.touched ">
+             </div>
+             <small class="text-danger" *ngIf="formName('prix')?.invalid && formName('prix')?.touched && formName('prix')?.errors?.required "> prix is required <br>  </small>
+             <br>
+             <div class="form-group">
+               <label for="quantity"  [class.text-danger]="formName('quantity')?.invalid && formName('quantity')?.touched "
+               [class.text-success]="formName('quantity')?.valid && formName('quantity')?.touched "  > <b>Quantités disponible</b></label>
+                 <input type="text" class="form-control" formControlName="quantity" placeholder="quantity"  [class.is-valid]="formName('quantity')?.valid && formName('quantity')?.touched "
+                 [class.is-invalid]="formName('quantity')?.invalid && formName('quantity')?.touched ">
+             </div>
+             <small class="text-danger" *ngIf="formName('quantity')?.valid && formName('quantity')?.touched && formName('quantity')?.errors?.required "></small>
+        <br>
+           <input type="file" #image  (change)="onGetImage($event,formGroupComputer.value.id) "  >
+           <input type="text" hidden="true" #imageName name="imageName" [value]="formGroupComputer.value.image" >
+             <br><br>
+           <div *ngIf="selectedFile">
+             <img src="assets/pcImage/{{selectedFile}} " width="200erm" formControlName="image" >
+           </div> <br><br>
+           <div *ngIf="!selectedFile">
+             <img [src]="'assets/pcImage/'+formGroupComputer.value.image"  width="200erm" formControlName="image"  >
+           </div> <br><br>
+           <button class="btn btn-success" type="submit" #btn (click)="onUpdateComputer() " [disabled]="formGroupComputer.invalid" >save changes</button>
+          
+           <input type="button" (click)=" onDeleteItem() " value="Delete Item" class="btn btn-danger" [hidden]="!hide_button" >
+           <input type="button" [hidden]="hide_button" (click)="deleteComputer(formGroupComputer.value)" value="delete forever?!" class="btn btn-danger"><br>
+           <small class="text-danger" *ngIf="!hide_button"> do your really want to lose this Item forever! </small>
+           
+           <!-- modal code  -->
+           
+           
+
+          
+       
+        </form>
+    </div>
+</div>
+ 

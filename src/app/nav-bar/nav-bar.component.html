@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <input hidden="true" type="text">
+    <a class="navbar-brand  " routerLink="/accueil"> 
+      
+      <div class="logo-image">
+        <img src="favicon.ico" class="img-fluid">
+  </div>
+        </a>
+        <a class="navbar-brand  text-info" routerLink="/accueil"> 
+      
+           
+            </a>
+        
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button> 
+   
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link text-info" routerLink="/acceuil">Accueil <span class="sr-only"></span></a>
+        </li>
+        <li  class="nav-item">
+          <a *ngIf="observerStatus" class="nav-link text-info" routerLink="/mycomputers">My Computers</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="observerStatus" class="nav-link  text-info" routerLink="/addComputer">add Computer</a>
+        </li>
+        
+      </ul>
+    
+      
+      
+    </div>
+    <ul >
+
+      <li> <button *ngIf="!observerStatus" class="btn btn-outline-primary sm ml-4" routerLink="/login">Login</button>  </li>
+     
+
+  </ul>
+  <ul >
+    <li> <button *ngIf="!observerStatus" class="btn btn-outline-info sm ml-4" routerLink="/signin">Sign Up  </button> </li>
+  </ul>
+  
+  <ul >
+    <li> <button *ngIf="observerStatus" class="btn btn-outline-info sm ml-4" (click)="getMyProfile()" >My Profile </button> </li>
+  </ul>
+  <ul >
+    <li> <button *ngIf="observerStatus" class="btn btn-outline-danger sm ml-4" routerLink="/logout" (click)="onLogOut() ">Logout </button> </li>
+  </ul>
+
+  <ul>
+    <li>
+      <input hidden="true" >
+    </li>
+  </ul>
+  </nav>
