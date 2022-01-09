@@ -16,7 +16,7 @@
                     <p class="card-text"> <b>Level : {{user.level}} </b> </p>
                     <p class="card-text"> <b>Section : {{user.section}} </b>  </p>
                     <div class="alert alert-danger" *ngIf="!deleteUser">
-                        Do you really want your Account! <br>
+                        Do you really want your to delete Account! <br>
                     </div>
                     <input type="button" class="btn btn-danger" (click)="getDelete() " [value]="val" [hidden]="!deleteUser" >
                     <input type="button" class="btn btn-danger" (click)="getDeleteUser(user.id) " value="yes delete my account" [hidden]="deleteUser" >

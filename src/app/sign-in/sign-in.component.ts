@@ -93,38 +93,30 @@ this.userService.getAllUsers().then((data)=>{
   
  }
 
+
+
  onCheckEmail(f:any){
  
-   let data
-   let long
-  
-  let mail = f
-  this.http.get<UserInterface[]>("http://localhost:3000/users").toPromise()
-  .then((users)=>{
+  let data
+  let long
+ 
+ let mail = f
+ this.http.get<UserInterface[]>("http://localhost:3000/users").subscribe((users)=>{
    data=users
-   return data
-  }).then((d)=>{
-    console.log("data array "+d.length);
-    
-    long=d.length
-    for (let i=0;i<long;i++){
-      console.log("email from array :"+d[i].email+" mail formulaire :"+mail);
-
-     
-      if(d[i].email==mail){
-        
-      this.email_used=true
-      }else this.email_used=false
-    }
-  console.log("valeur de email used "+this.email_used);
-  
-  }).catch(err=>console.log(err)
-  )
+   console.log("data array "+data.length);
+   
+   long=data.length
+   for (let i=0;i<long;i++){
+     console.log("email from array :"+data[i].email+" mail formulaire :"+mail);
+   if(data[i].email==mail){
+    this.email_used=true;
+    break
+     }else this.email_used=false
+   }
+ console.log("valeur de email used "+this.email_used);
  
- 
-
- }
-
+ })
+}
 
 
 }

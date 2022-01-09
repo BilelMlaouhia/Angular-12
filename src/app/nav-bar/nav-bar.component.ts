@@ -16,6 +16,7 @@ import { UserInterface } from '../services/user.interface';
 @Injectable({
   providedIn: 'root' 
 })
+
 export class NavBarComponent implements OnInit {
 
 public ok=localStorage.getItem('verifier')

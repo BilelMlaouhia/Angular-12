@@ -29,6 +29,16 @@
       "section": "sport ",
       "password": "Azertyu9",
       "image": "r.jpg"
+    },
+    {
+      "id": 5,
+      "fullName": "sonia boum3iza",
+      "section": "informatique",
+      "password": "Iset2022",
+      "image": "p.jpeg",
+      "level": "",
+      "email": "sonia@yahoo.fr",
+      "className": "Ti 1 promo6"
     }
   ],
   "computers": [
@@ -42,13 +52,29 @@
       "id": 9
     },
     {
-      "nom": "mac",
-      "prix": 450,
-      "quantity": 2,
-      "description": "blalal    djqdjkhkqdlo ",
-      "image": "images (1).jpg",
-      "userId": 2,
-      "id": 10
+      "id": 10,
+      "nom": "Mac ",
+      "prix": [
+        [
+          450
+        ]
+      ],
+      "quantity": [
+        [
+          2
+        ]
+      ],
+      "description": "I think this will be the most best Computer ever",
+      "image": [
+        [
+          "images (1).jpg"
+        ]
+      ],
+      "userId": [
+        [
+          2
+        ]
+      ]
     },
     {
       "nom": "mac",
@@ -85,6 +111,17 @@
       "image": "images (4).jpg",
       "userId": 2,
       "id": 14
+    },
+    {
+      "id": 15,
+      "nom": "dell ",
+      "prix": "330",
+      "quantity": "60",
+      "description": "its sonia's computer ",
+      "image": "téléchargement (1).jpg",
+      "userId": [
+        5
+      ]
     }
   ]
 }

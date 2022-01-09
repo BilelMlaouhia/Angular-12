@@ -15,11 +15,7 @@ export class FooterComponent implements OnInit , OnDestroy{
   
    }
 
-   formGroupTry = this.fb.group({
-     nom:['',[Validators.required,Validators.minLength(3),Validators.pattern("^[A-Z][a-z]{2,} *?$")]],
-     prenom:[''],
-     age:[0]
-   })
+   
 
 
   ngOnInit(): void {

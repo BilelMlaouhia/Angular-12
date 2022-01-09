@@ -46,7 +46,7 @@ import { UnAuthGuard } from './un-auth.guard';
     ReactiveFormsModule,
     
   ],
-  providers: [GestionService,UsersService,AuthService,UnAuthGuard,NavBarComponent,LoginComponent],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

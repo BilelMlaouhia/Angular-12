@@ -85,7 +85,7 @@ this.user.getAllUsers().then((data)=>{
   this.posted=true
  console.log("loged in with success");
      this.checkIfVerifUser(form).then((id)=>{
-      this.navBar.onLogIn()
+      // this.navBar.onLogIn()
      this.navBar.okUser = true
      this.user.Send_Connected_User_Id(id)
       localStorage.setItem('verifier','true')

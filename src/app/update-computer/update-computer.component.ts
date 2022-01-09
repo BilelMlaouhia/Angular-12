@@ -41,13 +41,13 @@ export class UpdateComputerComponent implements OnInit {
    }
    
    formGroupComputer:FormGroup = this.formBuilder.group({
-  id:[1],
-   nom:["",[Validators.required,Validators.minLength(3)]],
-   prix:[,[Validators.required]],
-   quantity:[,[Validators.required]],
-   description:["",[Validators.required,Validators.minLength(20)]],
-   image:[""],
-   userId:[1]
+     id:[1],
+     nom:["",[Validators.required,Validators.minLength(3)]],
+     prix:[,[Validators.required]],
+     quantity:[,[Validators.required]],
+     description:["",[Validators.required,Validators.minLength(20)]],
+     image:[""],
+     userId:[1]
   })
 
    
@@ -55,7 +55,7 @@ export class UpdateComputerComponent implements OnInit {
    ngOnInit(): void { 
    
     this.showPcId()
-    this.onGetComputers().then(data=>{
+    this.onGetComputers().then(data=>{ 
       console.log("the data from updateComputer "+JSON.stringify(data));
       
       let d:any={}
@@ -171,6 +171,10 @@ export class UpdateComputerComponent implements OnInit {
         this.http.put(url,this.updatedComputerVar).toPromise().then(data=>{
        console.log("updating done correctly "+data);
        this.pcUpdated=true
+       }).then(()=>{
+         setInterval(()=>{
+         this.router.navigateByUrl('/mycomputers')
+         },2000)
        })
     }
 
