@@ -43,15 +43,6 @@
   ],
   "computers": [
     {
-      "nom": "Mac",
-      "prix": "3400",
-      "quantity": "8",
-      "description": "This What I call laptop :)",
-      "image": "30111662.jpg",
-      "userId": 2,
-      "id": 1
-    },
-    {
       "nom": "mac",
       "prix": 5000,
       "quantity": 5,
@@ -88,13 +79,12 @@
       "id": 5
     },
     {
-
       "nom": "dell ",
       "prix": "330",
       "quantity": "60",
       "description": "its sonia's computer ",
       "image": "téléchargement (1).jpg",
-      "userId":5,
+      "userId": 5,
       "id": 6
     },
     {
@@ -113,7 +103,7 @@
       "description": "ram:16GB\nMEMOIRE:256GB\n",
       "image": "500.jpg",
       "userId": 3,
-      "id":8
+      "id": 8
     },
     {
       "nom": "Magico",
@@ -143,15 +133,15 @@
       "id": 11
     },
     {
-
       "nom": "dell ",
       "prix": "330",
       "quantity": "60",
       "description": "its sonia's computer ",
       "image": "téléchargement (1).jpg",
-      "userId":5,
+      "userId": 5,
       "id": 12
-    }, {
+    },
+    {
       "nom": "Mac",
       "prix": "3400",
       "quantity": "8",
@@ -197,15 +187,15 @@
       "id": 17
     },
     {
-
       "nom": "dell ",
       "prix": "330",
       "quantity": "60",
       "description": "its sonia's computer ",
       "image": "téléchargement (1).jpg",
-      "userId":5,
+      "userId": 5,
       "id": 18
-    }, {
+    },
+    {
       "nom": "Mac",
       "prix": "3400",
       "quantity": "8",
@@ -251,15 +241,22 @@
       "id": 23
     },
     {
-
       "nom": "dell ",
       "prix": "330",
       "quantity": "60",
       "description": "its sonia's computer ",
       "image": "téléchargement (1).jpg",
-      "userId":5,
+      "userId": 5,
       "id": 24
+    },
+    {
+      "nom": "dell ",
+      "prix": "330",
+      "quantity": "60",
+      "description": "its sonia's computer ",
+      "image": "téléchargement (1).jpg",
+      "userId": 5,
+      "id": 26
     }
-
   ]
 }

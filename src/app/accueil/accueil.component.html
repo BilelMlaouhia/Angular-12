@@ -23,16 +23,18 @@
 <nav aria-label="Page navigation example" >
   <ul class="pagination justify-content-center">
 
-      <li class="page-item">
-      <a class="page-link" (click)="changePagePrevious() " routerLink="/acceuil" >Previous</a>
+      <li  [ngClass]="selectedPrevious ?'page-item active ':'page-item' ">
+      <a class="page-link" (click)="changePagePrevious() "  >Previous</a>
     </li>
-
-    <li  [ngClass]="selected[pageNb+1] ?'page-item active ':'page-item' " *ngFor="let pageNb of numbrePages">
-      <a  class="page-link"  (click)="changePage(pageNb+1) " routerLink="/acceuil">{{pageNb+1}} </a>
+<div  *ngFor="let pageNb of numbrePages">
+  <li   [ngClass]="selected[pageNb] ?'page-item active ':'page-item' ">
+      <a  class="page-link"  (click)="changePage(pageNb) " >{{pageNb}} </a>
     </li>
+</div>
 
-    <li class="page-item">
-      <a class="page-link" (click)="changePageNext()"routerLink="/acceuil">Next</a>
+
+    <li [ngClass]="selectedNext ?'page-item active ':'page-item' ">
+      <a class="page-link" (click)="changePageNext()">Next</a>
     </li>
   </ul>
   <li class="page-item active"></li>

@@ -17,10 +17,11 @@ export class AccueilComponent implements OnInit {
    numbrePages:number[]=[]
    lastPage:number=0
    selected:boolean[]=[]
+   selectedPrevious=false
+   selectedNext=false
 
   constructor(private gestion:GestionService,private userService:UsersService) {
      this.currentUser =this.userService.userFound
-     this.changePage(1)
 
 
    }
@@ -28,64 +29,87 @@ export class AccueilComponent implements OnInit {
   ngOnInit(): void {
     this.pagination()
 
-
      this.gestion.onGetUser().subscribe((user)=>{
        this.user=user
      })
+
   }
   onSendId(id:any){
   this.gestion.computerIdNow=id;
   }
 
   changePagePrevious(){
-    if(this.lastPage<=0){
-      this.changePage(1)
-      this.selected[1]=true
-    }else {
-      this.changePage(this.lastPage)
-      this.selected[this.lastPage]=true
-    }
 
+  if(this.lastPage==1){
+    this.lastPage=1
+  }else{
+    this.lastPage = this.lastPage-1
   }
+
+    this.changePage(this.lastPage)
+    console.log("lastpage value "+this.lastPage);
+    this.selectedNext=false
+    this.selectedPrevious=true
+    setTimeout(() => {
+      this.selectedPrevious=false
+    }, 400);
+  }
+
   changePageNext(){
-    if(this.lastPage+3>=this.numbrePages.length){
-      this.changePage(this.numbrePages.length)
-      this.selected[this.numbrePages.length]=true
-    }else{
-      this.changePage(this.lastPage+3)
-      this.selected[this.lastPage+3]=true
+
+    if( this.lastPage==this.numbrePages.length){
+      this.lastPage =this.numbrePages.length
+      this.changePage(this.lastPage)
+
+    }else {
+        this.changePage(this.lastPage+1)
     }
 
+    this.selectedNext=true
+    this.selectedPrevious=false
+    setTimeout(() => {
+      this.selectedNext=false
+    }, 400);
   }
+
   changePage(pageNumber:number){
 
+    for(let h=0;h<=this.numbrePages.length;h++){
+      this.selected[h]=false
+    }
+
    this.allPages=[]
-  let j=0
+   let j=0
+
     for(let i=6*(pageNumber-1);i<6*pageNumber;i++){
 
         this.allPages[j]=this.pcs[i]
      j++
     }
+
+    this.selectedNext=false
+    this.selectedPrevious=false
+
     this.selected[pageNumber]=true
-    this.selected[this.lastPage]=false
-     this.lastPage=pageNumber-2
+
+    this.lastPage=pageNumber
+
+
     }
 
    pagination(){
     this.gestion.ongetComputers().subscribe(data=>{
       this.pcs=data
-      let p=this.pcs.length
-      let longeur=0
-   if(p%6==0){
-    longeur = (p/6)
-   }else{
-       longeur = (p/6)+1
-   }
-   console.log("le longeur "+longeur);
+      let longeur= this.pcs.length/6
 
     for(let n=0;n<longeur;n++){
-      this.numbrePages[n]=n
+      this.numbrePages[n]=n+1
       this.selected[n]=false
+    }
+     this.selected[1]=true
+     this.lastPage=1
+    for(let i=0;i<6;i++){
+      this.allPages[i]=this.pcs[i]
     }
     })
    }
