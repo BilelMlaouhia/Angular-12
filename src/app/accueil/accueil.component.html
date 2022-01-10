@@ -4,7 +4,7 @@
 <div   *ngFor="let pc of allPages">
 
 
-    <div class="card mx-auto" style="width: 400px" *ngIf="pc != undefined">
+    <div class="card mx-auto" style="width: 400px" *ngIf="pc">
         <img src="assets/pcImage/{{pc.image}}"   >
         <div class="card-body">
 
@@ -20,16 +20,20 @@
     <br><br>
 
 </div>
-<nav aria-label="Page navigation example">
+<nav aria-label="Page navigation example" >
   <ul class="pagination justify-content-center">
-    <!-- <li class="page-item disabled"> -->
+
       <li class="page-item">
-      <a class="page-link" (click)="changePagePrevious() " >Previous</a>
+      <a class="page-link" (click)="changePagePrevious() " routerLink="/acceuil" >Previous</a>
     </li>
 
-    <li class="page-item" *ngFor="let pageNb of numbrePages"><a  class="page-link" (click)="changePage(pageNb+1) ">{{pageNb+1}} </a></li>
+    <li  [ngClass]="selected[pageNb+1] ?'page-item active ':'page-item' " *ngFor="let pageNb of numbrePages">
+      <a  class="page-link"  (click)="changePage(pageNb+1) " routerLink="/acceuil">{{pageNb+1}} </a>
+    </li>
+
     <li class="page-item">
-      <a class="page-link" (click)="changePageNext()">Next</a>
+      <a class="page-link" (click)="changePageNext()"routerLink="/acceuil">Next</a>
     </li>
   </ul>
+  <li class="page-item active"></li>
 </nav>

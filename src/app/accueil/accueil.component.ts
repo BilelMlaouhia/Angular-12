@@ -16,10 +16,13 @@ export class AccueilComponent implements OnInit {
    allPages:pcGamer[]=[]
    numbrePages:number[]=[]
    lastPage:number=0
+   selected:boolean[]=[]
 
   constructor(private gestion:GestionService,private userService:UsersService) {
      this.currentUser =this.userService.userFound
      this.changePage(1)
+
+
    }
 
   ngOnInit(): void {
@@ -37,27 +40,34 @@ export class AccueilComponent implements OnInit {
   changePagePrevious(){
     if(this.lastPage<=0){
       this.changePage(1)
+      this.selected[1]=true
     }else {
       this.changePage(this.lastPage)
+      this.selected[this.lastPage]=true
     }
 
   }
   changePageNext(){
     if(this.lastPage+3>=this.numbrePages.length){
       this.changePage(this.numbrePages.length)
+      this.selected[this.numbrePages.length]=true
     }else{
       this.changePage(this.lastPage+3)
+      this.selected[this.lastPage+3]=true
     }
 
   }
   changePage(pageNumber:number){
 
+   this.allPages=[]
+  let j=0
     for(let i=6*(pageNumber-1);i<6*pageNumber;i++){
-      if(this.pcs[i]!=undefined){
-        this.allPages[i]=this.pcs[i]
-      }
 
+        this.allPages[j]=this.pcs[i]
+     j++
     }
+    this.selected[pageNumber]=true
+    this.selected[this.lastPage]=false
      this.lastPage=pageNumber-2
     }
 
@@ -75,6 +85,7 @@ export class AccueilComponent implements OnInit {
 
     for(let n=0;n<longeur;n++){
       this.numbrePages[n]=n
+      this.selected[n]=false
     }
     })
    }
