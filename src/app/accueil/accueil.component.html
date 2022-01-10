@@ -24,7 +24,7 @@
   <ul class="pagination justify-content-center">
 
       <li  [ngClass]="selectedPrevious ?'page-item active ':'page-item' ">
-      <a class="page-link" (click)="changePagePrevious() "  >Previous</a>
+      <a class="page-link" (click)="changePagePrevious() " > <span *ngIf="!firstof">Previous</span> <span *ngIf="firstof">First Page</span> </a>
     </li>
 <div  *ngFor="let pageNb of numbrePages">
   <li   [ngClass]="selected[pageNb] ?'page-item active ':'page-item' ">
@@ -34,7 +34,7 @@
 
 
     <li [ngClass]="selectedNext ?'page-item active ':'page-item' ">
-      <a class="page-link" (click)="changePageNext()">Next</a>
+      <a class="page-link"  (click)="changePageNext()"><span *ngIf="!endof"> Next</span> <span *ngIf="endof">Last Page</span></a>
     </li>
   </ul>
   <li class="page-item active"></li>

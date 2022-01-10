@@ -19,6 +19,8 @@ export class AccueilComponent implements OnInit {
    selected:boolean[]=[]
    selectedPrevious=false
    selectedNext=false
+   endof=false
+   firstof=true
 
   constructor(private gestion:GestionService,private userService:UsersService) {
      this.currentUser =this.userService.userFound
@@ -39,7 +41,12 @@ export class AccueilComponent implements OnInit {
   }
 
   changePagePrevious(){
-
+  if(this.lastPage==2){
+    this.firstof=true
+  }else{
+   this.firstof=false
+  }
+  this.endof=false
   if(this.lastPage==1){
     this.lastPage=1
   }else{
@@ -56,6 +63,12 @@ export class AccueilComponent implements OnInit {
   }
 
   changePageNext(){
+    if(this.lastPage==this.numbrePages.length-1){
+      this.endof=true
+    }else {
+      this.endof=false
+    }
+    this.firstof=false
 
     if( this.lastPage==this.numbrePages.length){
       this.lastPage =this.numbrePages.length
@@ -73,7 +86,21 @@ export class AccueilComponent implements OnInit {
   }
 
   changePage(pageNumber:number){
+    // changing value of nex and previous anchors
 
+if(pageNumber==1){
+  this.firstof=true
+  this.endof=false
+}else if(pageNumber==this.numbrePages.length){
+  this.firstof=false
+  this.endof=true
+}else{
+  this.firstof=false
+  this.endof=false
+}
+
+
+//code
     for(let h=0;h<=this.numbrePages.length;h++){
       this.selected[h]=false
     }
@@ -108,6 +135,7 @@ export class AccueilComponent implements OnInit {
     }
      this.selected[1]=true
      this.lastPage=1
+    //  this.firstof=true
     for(let i=0;i<6;i++){
       this.allPages[i]=this.pcs[i]
     }
