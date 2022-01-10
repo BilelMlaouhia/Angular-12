@@ -49,32 +49,7 @@
       "description": "This What I call laptop :)",
       "image": "30111662.jpg",
       "userId": 2,
-      "id": 9
-    },
-    {
-      "id": 10,
-      "nom": "Mac ",
-      "prix": [
-        [
-          450
-        ]
-      ],
-      "quantity": [
-        [
-          2
-        ]
-      ],
-      "description": "I think this will be the most best Computer ever",
-      "image": [
-        [
-          "images (1).jpg"
-        ]
-      ],
-      "userId": [
-        [
-          2
-        ]
-      ]
+      "id": 1
     },
     {
       "nom": "mac",
@@ -83,7 +58,7 @@
       "description": "ram:16GB\nMEMOIRE:256GB\n",
       "image": "500.jpg",
       "userId": 3,
-      "id": 11
+      "id": 2
     },
     {
       "nom": "Magico",
@@ -92,7 +67,7 @@
       "description": "blalblalalala  dldldldl",
       "image": "desktop.jpg",
       "userId": 2,
-      "id": 12
+      "id": 3
     },
     {
       "nom": "Ordinateur portable",
@@ -101,7 +76,7 @@
       "description": "le plus puissant de monde",
       "image": "800.jpg",
       "userId": 4,
-      "id": 13
+      "id": 4
     },
     {
       "nom": "HP",
@@ -110,18 +85,181 @@
       "description": "1 téra disque dur et 16 Go Ram",
       "image": "images (4).jpg",
       "userId": 2,
-      "id": 14
+      "id": 5
     },
     {
-      "id": 15,
+
       "nom": "dell ",
       "prix": "330",
       "quantity": "60",
       "description": "its sonia's computer ",
       "image": "téléchargement (1).jpg",
-      "userId": [
-        5
-      ]
+      "userId":5,
+      "id": 6
+    },
+    {
+      "nom": "Mac",
+      "prix": "3400",
+      "quantity": "8",
+      "description": "This What I call laptop :)",
+      "image": "30111662.jpg",
+      "userId": 2,
+      "id": 7
+    },
+    {
+      "nom": "mac",
+      "prix": 5000,
+      "quantity": 5,
+      "description": "ram:16GB\nMEMOIRE:256GB\n",
+      "image": "500.jpg",
+      "userId": 3,
+      "id":8
+    },
+    {
+      "nom": "Magico",
+      "prix": 320,
+      "quantity": 8,
+      "description": "blalblalalala  dldldldl",
+      "image": "desktop.jpg",
+      "userId": 2,
+      "id": 9
+    },
+    {
+      "nom": "Ordinateur portable",
+      "prix": 700,
+      "quantity": 12,
+      "description": "le plus puissant de monde",
+      "image": "800.jpg",
+      "userId": 4,
+      "id": 10
+    },
+    {
+      "nom": "HP",
+      "prix": 1000,
+      "quantity": 3,
+      "description": "1 téra disque dur et 16 Go Ram",
+      "image": "images (4).jpg",
+      "userId": 2,
+      "id": 11
+    },
+    {
+
+      "nom": "dell ",
+      "prix": "330",
+      "quantity": "60",
+      "description": "its sonia's computer ",
+      "image": "téléchargement (1).jpg",
+      "userId":5,
+      "id": 12
+    }, {
+      "nom": "Mac",
+      "prix": "3400",
+      "quantity": "8",
+      "description": "This What I call laptop :)",
+      "image": "30111662.jpg",
+      "userId": 2,
+      "id": 13
+    },
+    {
+      "nom": "mac",
+      "prix": 5000,
+      "quantity": 5,
+      "description": "ram:16GB\nMEMOIRE:256GB\n",
+      "image": "500.jpg",
+      "userId": 3,
+      "id": 14
+    },
+    {
+      "nom": "Magico",
+      "prix": 320,
+      "quantity": 8,
+      "description": "blalblalalala  dldldldl",
+      "image": "desktop.jpg",
+      "userId": 2,
+      "id": 15
+    },
+    {
+      "nom": "Ordinateur portable",
+      "prix": 700,
+      "quantity": 12,
+      "description": "le plus puissant de monde",
+      "image": "800.jpg",
+      "userId": 4,
+      "id": 16
+    },
+    {
+      "nom": "HP",
+      "prix": 1000,
+      "quantity": 3,
+      "description": "1 téra disque dur et 16 Go Ram",
+      "image": "images (4).jpg",
+      "userId": 2,
+      "id": 17
+    },
+    {
+
+      "nom": "dell ",
+      "prix": "330",
+      "quantity": "60",
+      "description": "its sonia's computer ",
+      "image": "téléchargement (1).jpg",
+      "userId":5,
+      "id": 18
+    }, {
+      "nom": "Mac",
+      "prix": "3400",
+      "quantity": "8",
+      "description": "This What I call laptop :)",
+      "image": "30111662.jpg",
+      "userId": 2,
+      "id": 19
+    },
+    {
+      "nom": "mac",
+      "prix": 5000,
+      "quantity": 5,
+      "description": "ram:16GB\nMEMOIRE:256GB\n",
+      "image": "500.jpg",
+      "userId": 3,
+      "id": 20
+    },
+    {
+      "nom": "Magico",
+      "prix": 320,
+      "quantity": 8,
+      "description": "blalblalalala  dldldldl",
+      "image": "desktop.jpg",
+      "userId": 2,
+      "id": 21
+    },
+    {
+      "nom": "Ordinateur portable",
+      "prix": 700,
+      "quantity": 12,
+      "description": "le plus puissant de monde",
+      "image": "800.jpg",
+      "userId": 4,
+      "id": 22
+    },
+    {
+      "nom": "HP",
+      "prix": 1000,
+      "quantity": 3,
+      "description": "1 téra disque dur et 16 Go Ram",
+      "image": "images (4).jpg",
+      "userId": 2,
+      "id": 23
+    },
+    {
+
+      "nom": "dell ",
+      "prix": "330",
+      "quantity": "60",
+      "description": "its sonia's computer ",
+      "image": "téléchargement (1).jpg",
+      "userId":5,
+      "id": 24
     }
+
   ]
 }

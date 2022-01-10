@@ -1,24 +1,35 @@
 
 
 <br><br>
-<div   *ngFor="let pc of pcs">
+<div   *ngFor="let pc of allPages">
 
-  
-    <div class="card mx-auto" style="width: 400px">
+
+    <div class="card mx-auto" style="width: 400px" *ngIf="pc != undefined">
         <img src="assets/pcImage/{{pc.image}}"   >
         <div class="card-body">
-        
-             <!-- <p  > <b>Id :</b>{{pc.id}}</p> -->
+
+             <p  > <b>Id :</b>{{pc.id}}</p>
              <p > <b>name :</b>{{pc.nom}}</p>
              <p > <b>description :</b>{{pc.description}}</p>
              <p > <b>quantity :</b>{{pc.quantity}} pieces left</p>
              <p > <b>price :</b>{{pc.prix | currency}}</p>
-            
+
         </div>
     </div>
-   
-    <br><br>
-    
-</div>
 
-<router-outlet></router-outlet>
+    <br><br>
+
+</div>
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <!-- <li class="page-item disabled"> -->
+      <li class="page-item">
+      <a class="page-link" (click)="changePagePrevious() " >Previous</a>
+    </li>
+
+    <li class="page-item" *ngFor="let pageNb of numbrePages"><a  class="page-link" (click)="changePage(pageNb+1) ">{{pageNb+1}} </a></li>
+    <li class="page-item">
+      <a class="page-link" (click)="changePageNext()">Next</a>
+    </li>
+  </ul>
+</nav>

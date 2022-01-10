@@ -1,9 +1,9 @@
 
 <div   *ngFor="let pc of pcs">
+<br><br>
+    <div *ngIf="pc.userId==ID">
 
-    <div *ngIf="pc.userId==ID"> 
-
-        <div class="card mx-auto" style="width: 400px"> 
+        <div class="card mx-auto" style="width: 400px">
             <img src="assets/pcImage/{{pc.image}}"   >
             <div class="card-body">
              <!-- <p>{{pc.userId}} </p> -->
@@ -12,14 +12,14 @@
                  <p > <b>description :</b>{{pc.description}}</p>
                  <p > <b>quantity :</b>{{pc.quantity}} pieces left</p>
                  <p > <b>price :</b>{{pc.prix | currency}}</p>
-                
+
                  <button class="btn btn-info"  routerLink="/updateComputer/{{pc.id}} " (click)="onSendId(pc.id) " >Edit </button>
             </div>
         </div>
     </div>
-   
+
     <br><br>
-    
+
 </div>
 
 <router-outlet></router-outlet>
