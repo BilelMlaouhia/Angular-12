@@ -124,15 +124,6 @@
       "id": 10
     },
     {
-      "nom": "HP",
-      "prix": 1000,
-      "quantity": 3,
-      "description": "1 téra disque dur et 16 Go Ram",
-      "image": "images (4).jpg",
-      "userId": 2,
-      "id": 11
-    },
-    {
       "nom": "dell ",
       "prix": "330",
       "quantity": "60",
@@ -176,21 +167,6 @@
       "image": "800.jpg",
       "userId": 4,
       "id": 16
-    },
-    {
-      "id": 17,
-      "nom": "HP ",
-      "prix": [
-        1000
-      ],
-      "quantity": [
-        3
-      ],
-      "description": "1 téra disque dur et 16 Go Ram  ",
-      "image": "hgg.jpg",
-      "userId": [
-        2
-      ]
     },
     {
       "nom": "dell ",
@@ -238,13 +214,17 @@
       "id": 22
     },
     {
-      "nom": "HP",
-      "prix": 1000,
-      "quantity": 3,
-      "description": "1 téra disque dur et 16 Go Ram",
-      "image": "images (4).jpg",
-      "userId": 2,
-      "id": 23
+      "id": 23,
+      "nom": "HP  ",
+      "prix": [
+        1000
+      ],
+      "quantity": "30",
+      "description": "1 téra disque dur SSD et 16 Go Ram,",
+      "image": "yu.jpg",
+      "userId": [
+        2
+      ]
     },
     {
       "nom": "dell ",
@@ -263,6 +243,15 @@
       "image": "téléchargement (1).jpg",
       "userId": 5,
       "id": 26
+    },
+    {
+      "nom": "Mac forever",
+      "prix": 2900,
+      "quantity": 6,
+      "description": "this is the first laptop in the world using memory SSD",
+      "image": "Zo1.jpg",
+      "userId": 2,
+      "id": 27
     }
   ]
 }

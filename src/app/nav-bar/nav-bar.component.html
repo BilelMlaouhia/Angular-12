@@ -1,12 +1,11 @@
-<nav class="container navbar navbar-expand-sm navbar-dark bg-dark"  style="z-index: 140;position: fixed;right: 0;left: 0;">
+
+<nav class="container  navbar navbar-expand-lg" style="z-index: 140;position: fixed;right: 0;left: 0;background-color: #1565C0;">
   <input hidden="true" type="text">
     <a class="navbar-brand  " routerLink="/accueil">
 
-      <div class="logo-image">
-        <img src="favicon.ico" class="img-fluid">
-  </div>
+
         </a>
-        <a class="navbar-brand  text-info" routerLink="/accueil">
+        <a class="navbar-brand  text-white" routerLink="/accueil">
 
 
             </a>
@@ -18,13 +17,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link text-info" routerLink="/acceuil">Accueil <span class="sr-only"></span></a>
+          <a class="nav-link text-white" routerLink="/acceuil">Accueil <span class="sr-only"></span></a>
         </li>
         <li  class="nav-item">
-          <a *ngIf="observerStatus" class="nav-link text-info" routerLink="/mycomputers">My Computers</a>
+          <a *ngIf="observerStatus" class="nav-link text-white" routerLink="/mycomputers">My Computers</a>
         </li>
         <li class="nav-item">
-          <a *ngIf="observerStatus" class="nav-link  text-info" routerLink="/addComputer">add Computer</a>
+          <a *ngIf="observerStatus" class="nav-link  text-white" routerLink="/addComputer">add Computer</a>
         </li>
 
       </ul>
@@ -34,24 +33,24 @@
     </div>
     <ul >
 
-      <li> <button *ngIf="!observerStatus" class="btn btn-outline-primary sm ml-4" routerLink="/login">Login</button>  </li>
+       <button *ngIf="!observerStatus" class="btn btn-outline-dark text-white sm ml-4" style="background-color: #DB4909;" routerLink="/login">Login</button>
 
 
   </ul>
   <ul >
-    <li> <button *ngIf="!observerStatus" class="btn btn-outline-info sm ml-4" routerLink="/signin">Sign Up  </button> </li>
+     <button *ngIf="!observerStatus" class="btn btn-outline-dark text-white sm ml-4" routerLink="/signin" style="background-color: #DB4909;">Sign Up  </button>
   </ul>
 
   <ul >
-    <li> <button *ngIf="observerStatus" class="btn btn-outline-info sm ml-4" (click)="getMyProfile()" >My Profile </button> </li>
+     <button *ngIf="observerStatus" class="btn btn-outline-dark text-white sm ml-4" (click)="getMyProfile()" style="background-color: #DB4909;">My Profile </button>
   </ul>
   <ul >
-    <li> <button *ngIf="observerStatus" class="btn btn-outline-danger sm ml-4" routerLink="/logout" (click)="onLogOut() ">Logout </button> </li>
+     <button *ngIf="observerStatus" class="btn btn-outline-dark text-white sm ml-4" routerLink="/logout" (click)="onLogOut() " style="background-color: #DB4909;">Logout </button>
   </ul>
 
   <ul>
-    <li>
+
       <input hidden="true" >
-    </li>
+
   </ul>
   </nav>

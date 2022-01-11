@@ -14,7 +14,7 @@
            <p > <b>name :</b>{{pc.nom}}</p>
            <p > <b>description :</b>{{pc.description}}</p>
            <p > <b>quantity :</b>{{pc.quantity}} pieces left</p>
-           <p > <b>price :</b>{{pc.prix | currency}}</p>
+           <p > <b>price :</b>{{pc.prix | prixDinar}}</p>
 
       </div>
   </div>
@@ -44,5 +44,5 @@
       <button class="page-link"  (click)="changePageNext()"><span *ngIf="!endof"> Next</span> <span *ngIf="endof">Last Page</span></button>
     </li>
   </ul>
-  <li class="page-item active"></li>
+
 </nav>
