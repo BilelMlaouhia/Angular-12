@@ -22,7 +22,7 @@ export class UpdateUserComponent implements OnInit {
   //   level:[3],
   //   email:['user@user'],
   //   className:['Ti']
- 
+
   //  })
 
   img:string=''
@@ -34,26 +34,26 @@ export class UpdateUserComponent implements OnInit {
 
  constructor(private userService:UsersService, private http:HttpClient, private router:Router,
   private formBuilder:FormBuilder) {
-    
+
     this.userService.getUserById().then((data)=>{
       this.getDataUser(data).then((d)=> console.log("current updateuser is : "+JSON.stringify(d))
       )
-    
+
     })
   }
 
  ngOnInit(): void {
-   
+
  }
- 
+
  onGetImage(e:any){
  this.img=e.target.files[0].name
- 
- 
+
+
  }
- 
+
  getDataUser(data:any){
-  
+
   return new Promise((resolve,reject)=>{
     this.userForm= this.formBuilder.group({
       id:[data.id],
@@ -64,18 +64,18 @@ export class UpdateUserComponent implements OnInit {
       level:[data.level],
       email:[data.email],
       className:[data.className]
-   
+
      })
      resolve(this.userForm.value)
      console.log("line 60 :"+this.userForm.value.email);
   })
-  
-   
+
+
  }
 
  onUpdateUserAccount(form:any){
    console.log("line 77 "+this.img);
-   
+
  let f=form.value
  if(this.img){f.image=this.img}
 
@@ -99,7 +99,7 @@ this.http.put("http://localhost:3000/users/"+f.id,newData).pipe(catchError(this.
 })
 
  }
- 
+
  errorHandler(error:HttpErrorResponse){
    console.log("the error from update user is: "+JSON.stringify(throwError(error)));
    this.err=throwError(error)
