@@ -8,7 +8,7 @@
 
 
             <div class="form-group">
-              {{formName('nom')?.value}}
+
              <label for="name"  [class.text-success]="formName('nom')?.valid && formName('nom') ?.touched  "
              [class.text-danger]="formGroupComputer.get('nom')?.invalid && formGroupComputer.get('nom')?.touched "> <b>Nom de PC</b></label>
                <input type="text" class="form-control" formControlName="nom"  [class.is-valid]="formGroupComputer.get('nom')?.valid && formGroupComputer.get('nom')?.touched  "

@@ -178,13 +178,19 @@
       "id": 16
     },
     {
-      "nom": "HP",
-      "prix": 1000,
-      "quantity": 3,
-      "description": "1 téra disque dur et 16 Go Ram",
-      "image": "images (4).jpg",
-      "userId": 2,
-      "id": 17
+      "id": 17,
+      "nom": "HP ",
+      "prix": [
+        1000
+      ],
+      "quantity": [
+        3
+      ],
+      "description": "1 téra disque dur et 16 Go Ram  ",
+      "image": "hgg.jpg",
+      "userId": [
+        2
+      ]
     },
     {
       "nom": "dell ",
