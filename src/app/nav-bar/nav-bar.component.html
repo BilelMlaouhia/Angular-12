@@ -1,5 +1,5 @@
 
-<nav class="container  navbar navbar-expand-lg" style="z-index: 140;position: fixed;right: 0;left: 0;background-color: #1565C0;">
+<nav class="container  navbar navbar-expand-lg" style="z-index: 140;position: fixed;right: 0;left: 0;background-color: #1565C0;height: 53px;">
   <input hidden="true" type="text">
     <a class="navbar-brand  " routerLink="/accueil">
 
@@ -33,19 +33,19 @@
     </div>
     <ul >
 
-       <button *ngIf="!observerStatus" class="btn btn-outline-dark text-white sm ml-4" style="background-color: #DB4909;" routerLink="/login">Login</button>
+       <button *ngIf="!observerStatus"  class="btn btn-outline-light tt sm ml-4"   style="margin-top: 16px;" routerLink="/login">Login</button>
 
 
   </ul>
   <ul >
-     <button *ngIf="!observerStatus" class="btn btn-outline-dark text-white sm ml-4" routerLink="/signin" style="background-color: #DB4909;">Sign Up  </button>
+     <button *ngIf="!observerStatus" class="btn btn-outline-light tt sm ml-4" routerLink="/signin" style="margin-top: 16px;">Sign Up  </button>
   </ul>
 
   <ul >
-     <button *ngIf="observerStatus" class="btn btn-outline-dark text-white sm ml-4" (click)="getMyProfile()" style="background-color: #DB4909;">My Profile </button>
+     <button *ngIf="observerStatus" class="btn btn-outline-light tt sm ml-4"  style="margin-top: 16px;" (click)="getMyProfile()" >My Profile </button>
   </ul>
   <ul >
-     <button *ngIf="observerStatus" class="btn btn-outline-dark text-white sm ml-4" routerLink="/logout" (click)="onLogOut() " style="background-color: #DB4909;">Logout </button>
+     <button *ngIf="observerStatus" class="btn btn-danger  sm ml-4"   style="margin-top: 16px;" routerLink="/logout" (click)="onLogOut() " >Logout </button>
   </ul>
 
   <ul>
