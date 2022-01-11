@@ -6,7 +6,7 @@
 
         </a>
         <a class="navbar-brand  text-white" routerLink="/accueil">
-
+          <i class="fa fa-home text-white" > Accueil</i>
 
             </a>
 
@@ -16,41 +16,41 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link text-white" routerLink="/acceuil">Accueil <span class="sr-only"></span></a>
-        </li>
-        <li  class="nav-item">
+                <li  class="nav-item">
           <a *ngIf="observerStatus" class="nav-link text-white" routerLink="/mycomputers">My Computers</a>
         </li>
         <li class="nav-item">
-          <a *ngIf="observerStatus" class="nav-link  text-white" routerLink="/addComputer">add Computer</a>
+          <a *ngIf="observerStatus" class="nav-link  text-white" routerLink="/addComputer"> <i class="fa fa-plus"></i>  Computer</a>
         </li>
 
       </ul>
 
-
-
     </div>
+
+    <div style="margin-right: 80px;">
+        <ul class="input-group mb-3">
+          <input type="text " style="margin-top: 17px; min-width: auto;" class="form-control " placeholder="chercher un produit" ><button class="input-group-text" style="height: 40px;margin-top: 17px;"><i class="fa fa-search"></i> </button>
+        </ul>
+      </div>
+
     <ul >
 
-       <button *ngIf="!observerStatus"  class="btn btn-outline-light tt sm ml-4"   style="margin-top: 16px;" routerLink="/login">Login</button>
+       <button *ngIf="!observerStatus"  class="btn btn-light  sm ml-4"   style="margin-top: 16px;" routerLink="/login">
+        <i class="fa fa-sign-in"> Login </i> </button>
 
 
-  </ul>
-  <ul >
-     <button *ngIf="!observerStatus" class="btn btn-outline-light tt sm ml-4" routerLink="/signin" style="margin-top: 16px;">Sign Up  </button>
   </ul>
 
   <ul >
-     <button *ngIf="observerStatus" class="btn btn-outline-light tt sm ml-4"  style="margin-top: 16px;" (click)="getMyProfile()" >My Profile </button>
+     <button *ngIf="!observerStatus" class="btn btn-light  sm ml-4" routerLink="/signin" style="margin-top: 16px;"><i class="fa fa-user-plus">  Sign Up </i>  </button>
+  </ul>
+
+  <ul >
+     <button *ngIf="observerStatus" class="btn btn-light  sm ml-4"  style="margin-top: 16px;" (click)="getMyProfile()" ><i class="fa fa-user-circle"> My Profile</i> </button>
   </ul>
   <ul >
-     <button *ngIf="observerStatus" class="btn btn-danger  sm ml-4"   style="margin-top: 16px;" routerLink="/logout" (click)="onLogOut() " >Logout </button>
+     <button *ngIf="observerStatus" class="btn btn-danger  sm ml-4"   style="margin-top: 16px;" routerLink="/logout" (click)="onLogOut() " > <i class="fa fa-sign-out"> Logout </i> </button>
   </ul>
 
-  <ul>
 
-      <input hidden="true" >
-
-  </ul>
   </nav>

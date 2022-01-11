@@ -18,7 +18,7 @@
                     <div class="alert alert-danger" *ngIf="!deleteUser">
                         Do you really want your to delete Account! <br>
                     </div>
-                    <input type="button" class="btn btn-danger" (click)="getDelete() " [value]="val" [hidden]="!deleteUser" >
+                    <input type="button" class="btn btn-danger" (click)="getDelete() " [value]="val" [hidden]="!deleteUser" style="margin-right:13px" >
                     <input type="button" class="btn btn-danger" (click)="getDeleteUser(user.id) " value="yes delete my account" [hidden]="deleteUser" >
                     <input type="text" hidden="true">
                     <button class="btn btn-info" (click)="postUserId(user.id) " > update account</button>

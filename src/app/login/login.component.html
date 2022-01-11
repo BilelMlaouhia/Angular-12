@@ -1,4 +1,4 @@
-<div class="container"> 
+<div class="container">
 <br><br>
     <form #f="ngForm">
         <div class="form-group" >
@@ -8,15 +8,15 @@
           required #email="ngModel" name="email" email  ngModel  placeholder="Enter email" (change)="onRestore() ">
           <small id="emailHelp" class="form-text text-muted " *ngIf="email.valid && email.dirty">We'll never share your email with anyone else.</small> <br>
           <div *ngIf="email.invalid && email.touched ">
-            
+
             <small class="text-danger" *ngIf="email.errors?.required  ">  email is required <br></small>
-            <small class="text-danger" *ngIf=" email.errors?.pattern" >email format should be: test@test.exemple<br></small> 
-                  
-          </div> 
+            <small class="text-danger" *ngIf=" email.errors?.pattern" >email format should be: test@test.exemple<br></small>
+
+          </div>
           <div *ngIf="email.valid && email.touched && f.valid && posted && email.dirty">
             <small [class.text-danger]="email_err==='wrong email adress!'" [class.text-success]="email_err==='correct email adress'" > {{email_err}} <br></small>
           </div>
-          
+
         <br>
         </div>
         <div class="form-group">
@@ -25,7 +25,7 @@
            [class.is-valid]="password.valid && password.touched" [class.is-invalid]="password.touched && password.invalid" >
         </div>
         <div>
-          <small class="text-danger" *ngIf="password.errors?.required && password.touched">password is required</small> 
+          <small class="text-danger" *ngIf="password.errors?.required && password.touched">password is required</small>
           <small class="text-danger" *ngIf="password.touched && !password.errors?.required && password.invalid">password might be at last 4 caracters or numbers</small>
         </div>
         <div *ngIf="password.valid && password.touched && f.valid && posted && password.dirty">
@@ -33,16 +33,9 @@
         </div>
         <br><br>
        <div >
-        <button type="submit" class="btn btn-primary " (click)=" postDetails(f.value)" [disabled]="f.invalid" >Login</button>
-        <button class="btn btn-info" routerLink="/signin">Sign up</button>
+        <button type="submit" class="btn btn-primary " (click)=" postDetails(f.value)" [disabled]="f.invalid" style="margin-right: 18px;" ><i class="fa fa-sign-in"> Login</i></button>
+        <button class="btn btn-primary" routerLink="/signin"> <i class="fa fa-user-plus"> Sign up</i> </button>
        </div>
       </form>
-</div> 
+</div>
 
-<!-- <form #f1="ngForm"> -->
-  <!-- <input type="text" name="age" #age ngModel> -->
-  <!-- <p style="color: brown;">{{Mohamed}} </p> -->
-  <!-- <button class="btn btn-info" (click)="valueOfInput(f1.value) ">submit</button> -->
-  <!-- <input [(ngModel)]="Mohamed" #ref= 'ngModel' name="ref">
-  <p  > {{Mohamed}} </p>
-</form> -->

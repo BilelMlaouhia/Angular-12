@@ -7,14 +7,10 @@
     margin-top: -6px;
 }
 
-.nav-link:hover{
+.nav-link:hover,.navbar-brand:hover{
 font-size: larger;
 text-transform: uppercase;
+font-weight: 700;
+}
 
-}
-.nav-link{
-  font-weight: 800;
-}
-.tt:hover{
-  color:#1565C0;
-}
+
