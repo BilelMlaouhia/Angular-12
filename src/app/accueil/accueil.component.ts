@@ -3,6 +3,7 @@ import { GestionService } from '../services/gestion.service';
 import { pcGamer } from '../pc.interface';
 import { UserInterface } from '../services/user.interface';
 import { UsersService } from '../services/users.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-accueil',
@@ -21,6 +22,8 @@ export class AccueilComponent implements OnInit {
    selectedNext=false
    endof=false
    firstof=true
+   slt="salut"
+   clicked=false
 
   constructor(private gestion:GestionService,private userService:UsersService) {
      this.currentUser =this.userService.userFound
@@ -34,8 +37,18 @@ export class AccueilComponent implements OnInit {
      this.gestion.onGetUser().subscribe((user)=>{
        this.user=user
      })
+  }
+
+  c(){
+    this.clicked= !this.clicked
+  }
+  saySlt(name:String){
+    alert("wlc "+name)
+    console.log(name);
 
   }
+
+
   onSendId(id:any){
   this.gestion.computerIdNow=id;
   }
@@ -113,7 +126,7 @@ if(pageNumber==1){
         this.allPages[j]=this.pcs[i]
      j++
     }
-
+   this.gestion.onPostCurrentPage(this.allPages)
     this.selectedNext=false
     this.selectedPrevious=false
 
@@ -141,5 +154,38 @@ if(pageNumber==1){
     }
     })
    }
+
+   searchProducts(v:String){
+     let recherche = v.toLocaleLowerCase()
+
+  this.gestion.ongetComputers().subscribe(res=>{
+   new Promise ((resolve,reject)=>{
+    this.pcs=res
+    this.allPages=[]
+     this.pcs.filter(p=>{
+     if(p.nom.indexOf(recherche)!=-1){
+       this.allPages.push(p)
+     }
+
+    })
+    let longeur= this.allPages.length/6
+
+    for(let n=0;n<longeur;n++){
+      this.numbrePages[n]=n+1
+      this.selected[n]=false
+    }
+  })
+
+
+  })
+  console.log(this.allPages);
+
+
+
+
+
+   }
+
+
 
 }

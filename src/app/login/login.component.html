@@ -1,4 +1,5 @@
 <div class="container">
+
 <br><br>
     <form #f="ngForm">
         <div class="form-group" >
@@ -21,12 +22,13 @@
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1" [class.text-success]="password.touched && password.valid" [class.text-danger]="password.touched && password.invalid" >Password</label>
-          <input type="password" class="form-control" name="password" required minlength="4" #password="ngModel" ngModel placeholder="Password"
+          <input type="password" class="form-control" name="password" required minlength="8" pattern="^(?=.*[\d])(?=.*[A-Z])(?=.*[a-z])[a-zA-Z0-9]{8,}$" #password="ngModel" ngModel placeholder="Password"
            [class.is-valid]="password.valid && password.touched" [class.is-invalid]="password.touched && password.invalid" >
         </div>
         <div>
           <small class="text-danger" *ngIf="password.errors?.required && password.touched">password is required</small>
-          <small class="text-danger" *ngIf="password.touched && !password.errors?.required && password.invalid">password might be at last 4 caracters or numbers</small>
+          <small class="text-danger" *ngIf="password.touched && !password.errors?.required && password.invalid">password might be at last 8 caracters or numbers <br></small>
+          <small class="text-danger" *ngIf="password.touched && !password.pattern && password.invalid" >missed Capital,lowerCase,number <br></small>
         </div>
         <div *ngIf="password.valid && password.touched && f.valid && posted && password.dirty">
           <small [class.text-danger]="password_err==='wrong password!'" [class.text-success]="password_err==='correct password'"> {{password_err}} <br></small>

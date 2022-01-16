@@ -8,29 +8,87 @@
         <form [formGroup]="userForm" (submit)="onUpdateUserAccount(userForm) ">
             <div *ngIf="userUpdated" class="alert-success">Account Updated !!</div>
             <div class="form-group">
-              <label for="exampleInputEmail1">Full Name</label>
-              <input type="email" class="form-control" name="fullName" #fullName formControlName="fullName"  >
+              <label for="fullName" [class.text-danger]="userForm.get('fullName')?.touched &&userForm.get('fullName')?.invalid"
+              [class.text-success]="userForm.get('fullName')?.touched &&userForm.get('fullName')?.valid" >Full Name</label>
+              <input type="email" class="form-control"  formControlName="fullName" [class.is-valid]="userForm.get('fullName')?.touched &&userForm.get('fullName')?.valid"
+              [class.is-invalid]="userForm.get('fullName')?.touched &&userForm.get('fullName')?.invalid" >
+              <div class="text-danger" *ngIf="userForm.get('fullName')?.touched &&userForm.get('fullName')?.invalid ">
+                   <small *ngIf="userForm.get('fullName')?.errors?.minlength">min length is 3 caracters <br></small>
+                   <small *ngIf="userForm.get('fullName')?.errors?.required" >full name is required <br></small>
+              </div>
+              <br>
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Section</label>
-                <input type="text" class="form-control"  formControlName="section" >
+                <label for="exampleInputEmail1"  [class.text-danger]="userForm.get('section')?.touched &&userForm.get('section')?.invalid"
+                [class.text-success]="userForm.get('section')?.touched &&userForm.get('section')?.valid">Section</label>
+                <input type="text" class="form-control"  formControlName="section"  [class.is-valid]="userForm.get('section')?.touched &&userForm.get('section')?.valid"
+                [class.is-invalid]="userForm.get('section')?.touched &&userForm.get('section')?.invalid">
+
+                   <small class="text-danger" *ngIf="userForm.get('section')?.errors?.required" >section is required <br></small>
               </div>
+              <br>
               <div class="form-group">
-                <label for="exampleInputEmail1">level</label>
-                <input type="text" class="form-control" pattern="^\d{3?} $" formControlName="level" >
+                <label for="exampleInputEmail1"  [class.text-danger]="userForm.get('level')?.touched &&userForm.get('level')?.invalid"
+                [class.text-success]="userForm.get('level')?.touched &&userForm.get('level')?.valid">level</label>
+                <input type="text" class="form-control"  formControlName="level"   [class.is-valid]="userForm.get('level')?.touched &&userForm.get('level')?.valid"
+                [class.is-invalid]="userForm.get('level')?.touched &&userForm.get('level')?.invalid" >
+                <small class="text-danger" *ngIf="userForm.get('section')?.errors?.required" >level is required <br></small>
               </div>
+              <br>
               <div class="form-group">
-                <label for="exampleInputEmail1">Classe Name</label>
-                <input type="text" class="form-control" formControlName="className" >
+                <label for="exampleInputEmail1" [class.text-danger]="userForm.get('className')?.touched &&userForm.get('className')?.invalid"
+                [class.text-success]="userForm.get('className')?.touched &&userForm.get('className')?.valid">Classe Name</label>
+                <input type="text" class="form-control" formControlName="className" [class.is-valid]="userForm.get('className')?.touched &&userForm.get('className')?.valid"
+                [class.is-invalid]="userForm.get('className')?.touched &&userForm.get('className')?.invalid">
+                <small class="text-danger" *ngIf="userForm.get('className')?.errors?.required" >className is required <br></small>
               </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control"  formControlName="email">
+                <label for="exampleInputEmail1"  [class.text-danger]="userForm.get('email')?.touched &&userForm.get('email')?.invalid"
+                [class.text-success]="userForm.get('email')?.touched &&userForm.get('email')?.valid" >Email address</label>
+                <input type="email" class="form-control"  formControlName="email" [class.is-valid]="userForm.get('email')?.touched &&userForm.get('email')?.valid"
+                [class.is-invalid]="userForm.get('email')?.touched &&userForm.get('email')?.invalid">
                 <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <div class="text-danger" *ngIf="userForm.get('email')?.touched &&userForm.get('email')?.invalid">
+                <small *ngIf="userForm.get('email')?.errors?.required">email is required <br></small>
+                <small *ngIf="userForm.get('email')?.errors?.pattern"> email format is exp@exp.com <br></small>
+                <small *ngIf="userForm.get('email')?.errors?.minglength" >min length is 8 caracters <br></small>
+
+                </div>
+                <br>
               </div>
+              <br>
             <div class="form-group">
-              <label for="exampleInputPassword1">Password</label>
-              <input type="password" class="form-control"  formControlName="password" >
+
+              <label for="password"  [class.text-danger]="userForm.get('password')?.touched &&userForm.get('password')?.invalid"
+              [class.text-success]="userForm.get('password')?.touched && userForm.get('password')?.valid" >Password</label>
+
+              <input type="password" class="form-control"  formControlName="password" [class.is-valid]="userForm.get('password')?.touched &&userForm.get('password')?.valid"
+              [class.is-invalid]="userForm.get('password')?.touched &&userForm.get('password')?.invalid" >
+              <div class="text-danger"  *ngIf="userForm.get('password')?.touched &&userForm.get('password')?.invalid">
+
+                <small *ngIf="userForm.get('password')?.errors?.required">password is required <br></small>
+                <small *ngIf="userForm.get('password')?.errors?.pattern"> needed capitale,lowerCase,number <br></small>
+                <small *ngIf="userForm.get('password')?.errors?.minglength" >password min length is 8 caracters <br></small>
+            </div>
+          </div>
+
+          <br>
+
+            <div class="form-group">
+              <label for="checkPassword" [class.text-danger]="userForm.get('checkPassword')?.touched &&userForm.get('checkPassword')?.invalid"
+              [class.text-success]="userForm.get('checkPassword')?.touched &&userForm.get('checkPassword')?.valid">verification Password</label>
+              <input type="password" class="form-control"  formControlName="checkPassword"
+               [class.is-valid]="userForm.get('checkPassword')?.touched &&userForm.get('checkPassword')?.valid"
+              [class.is-invalid]="userForm.get('checkPassword')?.touched &&userForm.get('checkPassword')?.invalid" >
+
+              <div class="text-danger"  *ngIf="userForm.get('checkPassword')?.touched &&userForm.get('checkPassword')?.invalid">
+
+              <small *ngIf="userForm.get('checkPassword')?.errors?.required">checkPassword is required <br></small>
+              <small *ngIf="userForm.get('checkPassword')?.value!=userForm.get('password')?.value && userForm.get('checkPassword')?.touched"> passwords didn't matched <br></small>
+            </div>
+            <small class="text-success" *ngIf="userForm.get('checkPassword')?.touched &&userForm.get('checkPassword')?.valid &&(userForm.get('checkPassword')?.value ==userForm.get('password')?.value) " >
+              passwords matched</small>
+
             </div>
             <br>
             <input type="file" #image  (change)="onGetImage($event) ">
@@ -40,10 +98,10 @@
             <img src="assets/userImage/{{img}} " width="180 erm" >
           </div>
           <div *ngIf="!img" with="30px"  >
-            <img [src]="'assets/userImage/'+userForm.value.image"width="180 erm">
+            <img [src]="'assets/userImage/'+userForm.value.image" width="180 erm">
           </div>
             <br><br>
-            <button type="submit" class="btn btn-primary"  >Submit</button>
+            <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid" >Submit</button>
           </form>
 
     </div>

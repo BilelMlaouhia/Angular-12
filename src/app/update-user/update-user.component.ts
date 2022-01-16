@@ -1,10 +1,11 @@
 import { HttpClient,HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsersService } from '../services/users.service';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs'
+import { UserInterface } from '../services/user.interface';
 
 @Component({
   selector: 'app-update-user',
@@ -12,18 +13,7 @@ import { throwError } from 'rxjs'
   styleUrls: ['./update-user.component.scss']
 })
 export class UpdateUserComponent implements OnInit {
-  public userForm?:FormGroup
-  // = this.formBuilder.group({
-  //   id:[1],
-  //   fullName:['user'],
-  //   section:['Ti'],
-  //   password:['la la'],
-  //   image:['b.png'],
-  //   level:[3],
-  //   email:['user@user'],
-  //   className:['Ti']
 
-  //  })
 
   img:string=''
   currentUser:any
@@ -33,14 +23,32 @@ export class UpdateUserComponent implements OnInit {
   err:any
 
  constructor(private userService:UsersService, private http:HttpClient, private router:Router,
-  private formBuilder:FormBuilder) {
+  private fb:FormBuilder) {
 
     this.userService.getUserById().then((data)=>{
+      console.log("data of current user "+data);
+
       this.getDataUser(data).then((d)=> console.log("current updateuser is : "+JSON.stringify(d))
       )
 
     })
   }
+
+  userForm:FormGroup= this.fb.group({
+
+    id:[1,Validators.required],
+    fullName:['',[Validators.required,Validators.minLength(4)]],
+    section:['',Validators.required],
+    password:['',[Validators.required,Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$')]],
+    image:[''],
+    level:[3,Validators.required],
+    email:['',[Validators.required,Validators.minLength(8),Validators.pattern("^([A-Za-z0-9._%+-]{3,40})+@[A-Za-z0-9.-]+\.[A-Za-z0-9._%+-]{2,9}$")]],
+    className:['',Validators.required],
+    checkPassword:['',[Validators.required,Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$')]]
+
+   })
+
+
 
  ngOnInit(): void {
 
@@ -55,11 +63,12 @@ export class UpdateUserComponent implements OnInit {
  getDataUser(data:any){
 
   return new Promise((resolve,reject)=>{
-    this.userForm= this.formBuilder.group({
+    this.userForm.setValue({
       id:[data.id],
       fullName:[data.fullName],
       section:[data.section],
       password:[data.password],
+      checkPassword:[data.password],
       image:[data.image],
       level:[data.level],
       email:[data.email],
@@ -68,7 +77,7 @@ export class UpdateUserComponent implements OnInit {
      })
      resolve(this.userForm.value)
      console.log("line 60 :"+this.userForm.value.email);
-  })
+  }).catch(err=>console.log(err))
 
 
  }

@@ -4,7 +4,7 @@
       "id": 2,
       "fullName": "Omar Mlawhia",
       "section": "Mécanique",
-      "password": "omar",
+      "password": "OMARomar123",
       "image": "r.jpg",
       "level": "4",
       "email": "omar@gmail.com",
@@ -65,7 +65,7 @@
       "prix": 700,
       "quantity": 12,
       "description": "le plus puissant de monde",
-      "image": "800.jpg",
+      "image": "yt.jpg",
       "userId": 4,
       "id": 4
     },
@@ -74,7 +74,7 @@
       "prix": 1000,
       "quantity": 3,
       "description": "1 téra disque dur et 16 Go Ram",
-      "image": "images (4).jpg",
+      "image": "500.jpg",
       "userId": 2,
       "id": 5
     },
@@ -83,7 +83,7 @@
       "prix": "330",
       "quantity": "60",
       "description": "its sonia's computer ",
-      "image": "téléchargement (1).jpg",
+      "image": "Zo1.jpg",
       "userId": 5,
       "id": 6
     },
@@ -119,7 +119,7 @@
       "prix": 700,
       "quantity": 12,
       "description": "le plus puissant de monde",
-      "image": "800.jpg",
+      "image": "yt.jpg",
       "userId": 4,
       "id": 10
     },
@@ -128,7 +128,7 @@
       "prix": "330",
       "quantity": "60",
       "description": "its sonia's computer ",
-      "image": "téléchargement (1).jpg",
+      "image": "Zo1.jpg",
       "userId": 5,
       "id": 12
     },
@@ -164,7 +164,7 @@
       "prix": 700,
       "quantity": 12,
       "description": "le plus puissant de monde",
-      "image": "800.jpg",
+      "image": "yt.jpg",
       "userId": 4,
       "id": 16
     },
@@ -173,7 +173,7 @@
       "prix": "330",
       "quantity": "60",
       "description": "its sonia's computer ",
-      "image": "téléchargement (1).jpg",
+      "image": "Zo1.jpg",
       "userId": 5,
       "id": 18
     },
@@ -209,29 +209,17 @@
       "prix": 700,
       "quantity": 12,
       "description": "le plus puissant de monde",
-      "image": "800.jpg",
+      "image": "yt.jpg",
       "userId": 4,
       "id": 22
     },
-    {
-      "id": 23,
-      "nom": "HP  ",
-      "prix": [
-        1000
-      ],
-      "quantity": "30",
-      "description": "1 téra disque dur SSD et 16 Go Ram,",
-      "image": "yu.jpg",
-      "userId": [
-        2
-      ]
-    },
+
     {
       "nom": "dell ",
       "prix": "330",
       "quantity": "60",
       "description": "its sonia's computer ",
-      "image": "téléchargement (1).jpg",
+      "image": "Zo1.jpg",
       "userId": 5,
       "id": 24
     },
@@ -240,7 +228,7 @@
       "prix": "330",
       "quantity": "60",
       "description": "its sonia's computer ",
-      "image": "téléchargement (1).jpg",
+      "image": "Zo1.jpg",
       "userId": 5,
       "id": 26
     },
@@ -252,6 +240,15 @@
       "image": "Zo1.jpg",
       "userId": 2,
       "id": 27
+    },
+    {
+      "nom": "Ordinateur portable",
+      "prix": 450,
+      "quantity": 8,
+      "description": "Ordinateur portableOrdinateur portableOrdinateur portable",
+      "image": "yt.jpg",
+      "userId": 2,
+      "id": 28
     }
   ]
 }
