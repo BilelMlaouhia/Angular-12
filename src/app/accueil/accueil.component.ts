@@ -15,6 +15,7 @@ export class AccueilComponent implements OnInit {
   public user:UserInterface[]=[]
   public currentUser:any
    allPages:pcGamer[]=[]
+   searchPages:pcGamer[]=[]
    numbrePages:number[]=[]
    lastPage:number=0
    selected:boolean[]=[]
@@ -99,7 +100,7 @@ export class AccueilComponent implements OnInit {
   }
 
   changePage(pageNumber:number){
-    // changing value of nex and previous anchors
+    // changing value of next and previous anchors
 
 if(pageNumber==1){
   this.firstof=true
@@ -157,34 +158,46 @@ if(pageNumber==1){
 
    searchProducts(v:String){
      let recherche = v.toLocaleLowerCase()
+     console.log(recherche);
 
-  this.gestion.ongetComputers().subscribe(res=>{
-   new Promise ((resolve,reject)=>{
-    this.pcs=res
-    this.allPages=[]
-     this.pcs.filter(p=>{
-     if(p.nom.indexOf(recherche)!=-1){
-       this.allPages.push(p)
-     }
+     if(recherche==" "|| recherche==""){
+       this.allPages=[]
+       this.pcs=[]
+      this.pagination()
+    }else {
+      this.gestion.ongetComputers().subscribe(res=>{
 
-    })
-    let longeur= this.allPages.length/6
+        this.pcs=res
+        this.allPages=[]
+        this.searchPages=[]
+        let j=0
+         this.pcs.filter(p=>{
+         if(p.nom.toLocaleLowerCase().indexOf(recherche)!=-1){
+         this.searchPages.push(p)
+        }
+        this.pcs=this.searchPages
+        this.numbrePages=[]
 
-    for(let n=0;n<longeur;n++){
-      this.numbrePages[n]=n+1
-      this.selected[n]=false
+//rachma
+        for(let n=0;n<this.pcs.length/6;n++){
+          this.numbrePages[n]=n+1
+          this.selected[n]=false
+        }
+         this.selected[1]=true
+         this.lastPage=1
+
+        for(let i=0;i<6;i++){
+          this.allPages[i]=this.pcs[i]
+        }
+        this.changePage(1)
+
+       })
+        })
     }
-  })
-
-
-  })
-  console.log(this.allPages);
-
-
-
-
 
    }
+
+
 
 
 

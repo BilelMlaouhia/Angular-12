@@ -4,7 +4,7 @@
 <div style="margin-right: 80px;">
   <ul class="input-group mb-3">
     <input type="text " style="margin-top: 17px; min-width: auto;" #search name="search" class="form-control " placeholder="chercher un produit"
-     (blur)="searchProducts(search.value)" (change)="searchProducts(search.value) " (keyup)="searchProducts(search.value)"><button class="input-group-text" style="height: 40px;margin-top: 17px;"><i class="fa fa-search"></i> </button>
+      (keyup)="searchProducts(search.value)"><button class="input-group-text" style="height: 40px;margin-top: 17px;"><i class="fa fa-search"></i> </button>
   </ul>
 </div>
 <br>
@@ -18,7 +18,7 @@
       <img src="assets/pcImage/{{pc.image}}" style="height: 15rem;margin-left:auto;margin-right: auto ;max-width:20rem ; "  >
       <div class="card-body ">
 
-           <p  > <b>Id :</b>{{pc.id}}</p>
+           <!-- <p  > <b>Id :</b>{{pc.id}}</p> -->
            <p > <b>name :</b>{{pc.nom}}</p>
            <p > <b>description :</b>{{pc.description}}</p>
            <p > <b>quantity :</b>{{pc.quantity}} pieces left</p>
