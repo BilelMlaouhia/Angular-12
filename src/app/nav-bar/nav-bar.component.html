@@ -24,7 +24,10 @@
         </li>
 
       </ul>
-
+      <ul class="input-group mb-3" style="width: 290px;">
+        <input type="text " style="margin-top: 17px; width: fit-content;" #search name="search" class="form-control " placeholder="chercher un produit"
+          (keyup)="searchProducts(search.value);movetoHome()"  ><button class="input-group-text" style="height: 40px;margin-top: 17px;"><i class="fa fa-search" (click)="searchProducts(search.value)"></i> </button>
+      </ul>
     </div>
 
 
@@ -47,6 +50,8 @@
   <ul >
      <button *ngIf="observerStatus" class="btn btn-danger  sm ml-4"   style="margin-top: 16px;" routerLink="/logout" (click)="onLogOut() " > <i class="fa fa-sign-out"> Logout </i> </button>
   </ul>
+
+
 
 
   </nav>

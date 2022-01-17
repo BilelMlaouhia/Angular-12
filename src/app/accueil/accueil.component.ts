@@ -11,6 +11,7 @@ import { Subject } from 'rxjs';
   styleUrls: ['./accueil.component.scss']
 })
 export class AccueilComponent implements OnInit {
+  show:String=""
   public pcs:pcGamer[]= []
   public user:UserInterface[]=[]
   public currentUser:any
@@ -38,6 +39,9 @@ export class AccueilComponent implements OnInit {
      this.gestion.onGetUser().subscribe((user)=>{
        this.user=user
      })
+    this.userService.showing$.subscribe(res=>this.searchProducts(res))
+
+
   }
 
   c(){

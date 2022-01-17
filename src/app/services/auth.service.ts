@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
   autoriser=false
-  constructor( ) { 
+  constructor( ) {
 
   }
   canActivated(){

@@ -21,6 +21,7 @@ import { GestionService } from '../services/gestion.service';
 
 export class NavBarComponent implements OnInit {
 
+how:String = "slt"
 public ok=localStorage.getItem('verifier')
 public okUser :any
 public currentUserId:any
@@ -41,7 +42,7 @@ public allPages:pcGamer[]=[]
 
   ngOnInit(): void {
     this.currentUserId=this.userService.currentUser
-
+   this.userService.showing$.subscribe(res=>this.how=res)
 
   }
 
@@ -84,5 +85,18 @@ public allPages:pcGamer[]=[]
   serchProd(){
 
   }
+
+  showing(f:String){
+  this.userService.onShowing(f)
+  }
+
+  searchProducts(v:String){
+  this.userService.onShowing(v)
+  }
+
+  movetoHome(){
+    this.router.navigate(['/home'])
+  }
+
 
 }
