@@ -49,15 +49,13 @@
              </div>
              <small class="text-danger" *ngIf="formName('quantity')?.valid && formName('quantity')?.touched && formName('quantity')?.errors?.required "></small>
         <br>
-           <input type="file" #image  (change)="onGetImage($event,formGroupComputer.value.id) "  >
-           <input type="text" hidden="true" #imageName name="imageName" [value]="formGroupComputer.value.image" >
+           <input type="text" formControlName="image" class="form-control" >
+
              <br><br>
-           <div *ngIf="selectedFile">
-             <img src="assets/pcImage/{{selectedFile}} " width="200erm" formControlName="image" >
-           </div> <br><br>
-           <div *ngIf="!selectedFile">
-             <img [src]="'assets/pcImage/'+formGroupComputer.value.image"  width="200erm" formControlName="image"  >
-           </div> <br><br>
+           <div *ngIf="formGroupComputer.value.image">
+             <img [src]="formGroupComputer.value.image" width="200erm" formControlName="image" >
+           </div>
+          <br><br>
            <button class="btn btn-success" type="submit" #btn (click)="onUpdateComputer() " [disabled]="formGroupComputer.invalid" >save changes</button>
 
            <input type="button" (click)=" onDeleteItem() " value="Delete Item" class="btn btn-danger" [hidden]="!hide_button" >

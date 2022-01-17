@@ -1,254 +1,53 @@
 {
   "users": [
     {
-      "id": 2,
+      "email": "omar@gmail.com",
       "fullName": "Omar Mlawhia",
       "section": "Mécanique",
-      "password": "OMARomar123",
-      "image": "r.jpg",
-      "level": "4",
-      "email": "omar@gmail.com",
-      "className": "Mec 2 eng"
-    },
-    {
-      "id": 3,
-      "fullName": "oumaima",
-      "className": "dsi2",
-      "email": "oumaima@gmail.com",
-      "level": "2",
-      "section": "informatique",
-      "password": "Breakpoint2020",
-      "image": "o.jpg"
-    },
-    {
-      "id": 4,
-      "fullName": "Med Mlaouhia",
-      "className": "Ineps 1",
-      "email": "mohamed@gmail.com",
-      "level": "9",
-      "section": "sport ",
-      "password": "Azertyu9",
-      "image": "r.jpg"
-    },
-    {
-      "id": 5,
-      "fullName": "sonia boum3iza",
-      "section": "informatique",
-      "password": "Iset2022",
-      "image": "p.jpeg",
-      "level": "",
-      "email": "sonia@yahoo.fr",
-      "className": "Ti 1 promo6"
+      "level": "3",
+      "className": "Mec 2 eng",
+      "password": "Omaromar12",
+      "confirmPassword": "Omaromar12",
+      "image": "https://guide-angular.wishtack.io/~/files/v0/b/gitbook-28427.appspot.com/o/assets%2F-L9vDDYxu6nH7FVBtFFS%2F-LfVgc6Gv5iIoU6vdkG6%2F-LfVgg9R3goq0xVtKaFX%2Fangular-platform.png?alt=media&token=4b76e002-fe8f-4b02-b65f-ebd901027396",
+      "id": 1
     }
   ],
   "computers": [
     {
-      "nom": "mac",
-      "prix": 5000,
-      "quantity": 5,
-      "description": "ram:16GB\nMEMOIRE:256GB\n",
-      "image": "500.jpg",
-      "userId": 3,
+      "nom": "PC PORTABLE LENOVO IDEAPAD 1 11IGL05 N4020 4GO 128GO SSD - GRIS (81VT0058FG) ",
+      "prix": 799,
+      "quantity": 12,
+      "description": "Écran 11.6\" HD - Processeur: Intel Celeron N4020 (1,10 GHz up to 2.80 GHz , 4Mo de mémoire cache, Dual-Core) - Système d'exploitation: FreeDos - Mémoire RAM: 4 Go DDR4-2400 - Disque Dur: 128 Go SSD - Carte Graphique: Intel HD Graphics avec Wi-Fi, Bluetooth, 2x USB 3.2 Gen 1, 1x HDMI 1.4, 1x prise combo casque/micro (3,5 mm) et lecteur de carte - Couleur: Gris - Garantie: 1 an\n\n",
+      "image": "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/8/1/81vt0058fg--5.jpg",
+      "userId": 1,
+      "id": 1
+    },
+    {
+      "nom": "PC PORTABLE ASUS X543MA CELERON N4020 4GO 1TO - GRIS (X543MA-GQ1012T) ",
+      "prix": 969,
+      "quantity": 2,
+      "description": "Écran 15.6\" HD - Processeur: Intel Celeron N4020 (1,10 GHz up to 2,80 GHz, 4Mo Mémoire cache, Dual-Core) - Système d'exploitation: Windows 10 Famille - Mémoire RAM: 4Go - Disque Dur: 1 To - Carte Graphique: Intel HD Graphics, avec WiFi, Bluetooth, 1x USB 3.1, 2x USB 2.0, 1x HDMI - Couleur: Gris - Garantie: 1 an ",
+      "image": "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/x/5/x543ma-gq1012t.jpg",
+      "userId": 1,
       "id": 2
     },
     {
-      "nom": "Magico",
-      "prix": 320,
-      "quantity": 8,
-      "description": "blalblalalala  dldldldl",
-      "image": "desktop.jpg",
-      "userId": 2,
+      "nom": "PC PORTABLE ASUS W202NA INTEL CELERON N3350 4GO 64GO EMMC + SOURIS - BLEU FONCÉ (BU-W202NA-GJ0094R)",
+      "prix": 929,
+      "quantity": 7,
+      "description": "Écran 11.6\" HD - Processeur: Intel Celeron N3350 ( 1,10 GHz up to 2.40 GHz, 2 Mo de mémoire cache, Dual-Core)- Système d'exploitation: Windows 10 Pro - Mémoire RAM: 4 Go DDR4 - Disque Dur: 64 Go eMMC - Carte Graphique: Intel UHD Graphics avec Wi-Fi, Bluetooth, 2x USB 3.2 Gen 1 Type-A, 1x HDMI - Clavier Chiclet - Couleur: Bleu Foncé - Garantie: 1 an",
+      "image": "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/b/u/bu-w202na-gj0094r-1.jpg",
+      "userId": 1,
       "id": 3
     },
     {
-      "nom": "Ordinateur portable",
-      "prix": 700,
-      "quantity": 12,
-      "description": "le plus puissant de monde",
-      "image": "yt.jpg",
-      "userId": 4,
+      "nom": "PC PORTABLE ASUS D415DA AMD RYZEN 3 4GO 1TO - GRIS (D415DA-BV873T)",
+      "prix": 1229,
+      "quantity": 88,
+      "description": "Écran 14\" HD - Processeur: AMD Ryzen 3-3250U (2.6GHz up to 3.5GHz, L2: 1Mo / L3: 4Mo, de mémoire cache, Dual-Core) - Système d'exploitation: Windows 10 Famille - Mémoire RAM: 4 Go DDR4 - Disque Dur: 1To HDD - Carte Graphique: Intel HD Graphics avec Wi-Fi, Bluetooth, 1x USB Type-C 3.2 Gen 1, 1x USB Type-A 3.2 Gen 1, 2x USB Type-A 2.0, 1x HDMI 1.4 et Lecteur de carte micro SD - Clavier Chiclet avec ",
+      "image": "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/d/4/d415da-bv873t-1.jpg",
+      "userId": 1,
       "id": 4
-    },
-    {
-      "nom": "HP",
-      "prix": 1000,
-      "quantity": 3,
-      "description": "1 téra disque dur et 16 Go Ram",
-      "image": "500.jpg",
-      "userId": 2,
-      "id": 5
-    },
-    {
-      "nom": "dell ",
-      "prix": "330",
-      "quantity": "60",
-      "description": "its sonia's computer ",
-      "image": "Zo1.jpg",
-      "userId": 5,
-      "id": 6
-    },
-    {
-      "nom": "Mac",
-      "prix": "3400",
-      "quantity": "8",
-      "description": "This What I call laptop :)",
-      "image": "30111662.jpg",
-      "userId": 2,
-      "id": 7
-    },
-    {
-      "nom": "mac",
-      "prix": 5000,
-      "quantity": 5,
-      "description": "ram:16GB\nMEMOIRE:256GB\n",
-      "image": "500.jpg",
-      "userId": 3,
-      "id": 8
-    },
-    {
-      "nom": "Magico",
-      "prix": 320,
-      "quantity": 8,
-      "description": "blalblalalala  dldldldl",
-      "image": "desktop.jpg",
-      "userId": 2,
-      "id": 9
-    },
-    {
-      "nom": "Ordinateur portable",
-      "prix": 700,
-      "quantity": 12,
-      "description": "le plus puissant de monde",
-      "image": "yt.jpg",
-      "userId": 4,
-      "id": 10
-    },
-    {
-      "nom": "dell ",
-      "prix": "330",
-      "quantity": "60",
-      "description": "its sonia's computer ",
-      "image": "Zo1.jpg",
-      "userId": 5,
-      "id": 12
-    },
-    {
-      "nom": "Mac",
-      "prix": "3400",
-      "quantity": "8",
-      "description": "This What I call laptop :)",
-      "image": "30111662.jpg",
-      "userId": 2,
-      "id": 13
-    },
-    {
-      "nom": "mac",
-      "prix": 5000,
-      "quantity": 5,
-      "description": "ram:16GB\nMEMOIRE:256GB\n",
-      "image": "500.jpg",
-      "userId": 3,
-      "id": 14
-    },
-    {
-      "nom": "Magico",
-      "prix": 320,
-      "quantity": 8,
-      "description": "blalblalalala  dldldldl",
-      "image": "desktop.jpg",
-      "userId": 2,
-      "id": 15
-    },
-    {
-      "nom": "Ordinateur portable",
-      "prix": 700,
-      "quantity": 12,
-      "description": "le plus puissant de monde",
-      "image": "yt.jpg",
-      "userId": 4,
-      "id": 16
-    },
-    {
-      "nom": "dell ",
-      "prix": "330",
-      "quantity": "60",
-      "description": "its sonia's computer ",
-      "image": "Zo1.jpg",
-      "userId": 5,
-      "id": 18
-    },
-    {
-      "nom": "Mac",
-      "prix": "3400",
-      "quantity": "8",
-      "description": "This What I call laptop :)",
-      "image": "30111662.jpg",
-      "userId": 2,
-      "id": 19
-    },
-    {
-      "nom": "mac",
-      "prix": 5000,
-      "quantity": 5,
-      "description": "ram:16GB\nMEMOIRE:256GB\n",
-      "image": "500.jpg",
-      "userId": 3,
-      "id": 20
-    },
-    {
-      "nom": "Magico",
-      "prix": 320,
-      "quantity": 8,
-      "description": "blalblalalala  dldldldl",
-      "image": "desktop.jpg",
-      "userId": 2,
-      "id": 21
-    },
-    {
-      "nom": "Ordinateur portable",
-      "prix": 700,
-      "quantity": 12,
-      "description": "le plus puissant de monde",
-      "image": "yt.jpg",
-      "userId": 4,
-      "id": 22
-    },
-
-    {
-      "nom": "dell ",
-      "prix": "330",
-      "quantity": "60",
-      "description": "its sonia's computer ",
-      "image": "Zo1.jpg",
-      "userId": 5,
-      "id": 24
-    },
-    {
-      "nom": "dell ",
-      "prix": "330",
-      "quantity": "60",
-      "description": "its sonia's computer ",
-      "image": "Zo1.jpg",
-      "userId": 5,
-      "id": 26
-    },
-    {
-      "nom": "Mac forever",
-      "prix": 2900,
-      "quantity": 6,
-      "description": "this is the first laptop in the world using memory SSD",
-      "image": "Zo1.jpg",
-      "userId": 2,
-      "id": 27
-    },
-    {
-      "nom": "Ordinateur portable",
-      "prix": 450,
-      "quantity": 8,
-      "description": "Ordinateur portableOrdinateur portableOrdinateur portable",
-      "image": "yt.jpg",
-      "userId": 2,
-      "id": 28
     }
   ]
 }

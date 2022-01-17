@@ -86,7 +86,7 @@ export class UpdateUserComponent implements OnInit {
    console.log("line 77 "+this.img);
 
  let f=form.value
- if(this.img){f.image=this.img}
+
 
 let newData ={
   id:f.id,

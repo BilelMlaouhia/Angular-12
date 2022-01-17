@@ -7,14 +7,14 @@
 
 </div>
 <br>
-
+<div class="alert alert-info text-center" *ngIf="allPages.length==0 " >Sorry there is no Item here to be showed </div>
 <div class="row row-cols-3">
   <div   *ngFor="let pc of allPages" >
 
 
 
     <div class="card mx-auto col" style="width: 30remx;min-height: 30rem;" *ngIf="pc">
-      <img src="assets/pcImage/{{pc.image}}" style="height: 15rem;margin-left:auto;margin-right: auto ;max-width:20rem ; "  >
+      <img [src]="pc.image" style="height: 15rem;margin-left:auto;margin-right: auto ;max-width:20rem ; "  >
       <div class="card-body ">
 
            <!-- <p  > <b>Id :</b>{{pc.id}}</p> -->

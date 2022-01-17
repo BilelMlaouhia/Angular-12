@@ -10,17 +10,17 @@ import { GestionService } from '../services/gestion.service';
   styleUrls: ['./add-pc.component.scss']
 })
 export class AddPcComponent implements OnInit  {
- 
+
  public selectedFile:any=null
  public fileImage:any=null
- public originalImage:any 
+ public originalImage:any
  public computer:pcGamer[]=[]
  public newInformations?:pcGamer
  public newComputer?:pcGamer
  public added=false
  public lastId:any
 
-  constructor(private http:HttpClient,private gestion:GestionService,private router:Router) { 
+  constructor(private http:HttpClient,private gestion:GestionService,private router:Router) {
       this.onGetComputers().then(id=>console.log("the last id is: "+id)).catch(err=>console.log(err) )
   }
 
@@ -37,16 +37,16 @@ export class AddPcComponent implements OnInit  {
    })
   }
 
-  onGetImage(event:any) { 
+  onGetImage(event:any) {
 console.log(event);
 this.selectedFile=event.target.files[0].name
 this.fileImage=event.target.files[0]
 console.log("from onGetImage method "+this.selectedFile);
 
- 
+
   }
 
-  
+
 
   onPostComputer(f:any){
     let userId = Number(localStorage.getItem('userId'))
@@ -57,27 +57,27 @@ console.log("from onGetImage method "+this.selectedFile);
       prix:formValues.price,
       quantity:formValues.quantity,
       description:formValues.description,
-      image:this.selectedFile,
+      image:formValues.image,
       userId:userId
     }
- 
+
   this.http.post("http://localhost:3000/computers",this.newInformations).toPromise().then(data=>{
     console.log("done posting "+data);
     this.added=true
-    
+
   }).then(()=>{
     setInterval(()=>{
     this.router.navigateByUrl('/accueil')
 
     },1000)
   }).catch(err=>err)
-   
+
     }
-  
- 
 
 
- 
+
+
+
 
 
 }

@@ -4,7 +4,7 @@
     <div *ngIf="pc.userId==ID">
 
         <div class="card mx-auto" style="width: 400px">
-            <img src="assets/pcImage/{{pc.image}}"   >
+            <img [src]="pc.image"   >
             <div class="card-body">
              <!-- <p>{{pc.userId}} </p> -->
                  <p  > <b>Computer's Id :</b>{{pc.id}}</p>

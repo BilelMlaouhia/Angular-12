@@ -6,7 +6,7 @@
     <div *ngIf="authUser.id==user.id">
 
         <div class="card mx-auto" style="width: 30rem;">
-            <img class="card-img-top" src="assets/userImage/{{user.image}}" width="70px">
+            <img class="card-img-top" [src]="user.image" width="70px">
 
                 <div class="card-body">
 

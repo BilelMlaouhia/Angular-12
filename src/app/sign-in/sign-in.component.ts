@@ -18,69 +18,29 @@ export class SignInComponent implements OnInit {
    cmp:any
 
   constructor(private userService:UsersService, private http:HttpClient, private router:Router) {
-  
+
    }
 
   ngOnInit(): void {
   }
-  
+
   onGetImage(e:any){
-  
+
 this.img=e.target.files[0].name
 
   }
 
   onPostData(f:any){
-    let compteur=0
-    let long
-  let   newUser={
-      id:0,
-      className:'',
-      email:'',
-      fullName:'',
-      image:'',
-      level:0,
-      password:'',
-      section:''
-    }
-this.userService.getAllUsers().then((data)=>{
-    this.allUsers=data
-}).then(()=>{
-  long=this.allUsers.length
-  for(let i=0;i<long;i++){
-     if(this.allUsers[i].email!=f.email){
-       compteur++
-     }
-  }
-// console.log("line 53 users "+JSON.stringify(this.allUsers)+" long : "+long+" compteur: "+compteur);
 
-  
-  if (compteur==long){
-   
-    this.http.post("http://localhost:3000/users",{
-  id:(this.allUsers[long-1].id)+1,
-  fullName : f.fullName,
-  className:f.className,
-  email : f.email,
-  level : f.level,
-  section : f.section,
-  password : f.password,
-  image : this.img
-
-}).toPromise() 
+    this.http.post("http://localhost:3000/users",f).toPromise()
  .then((u)=>{
-   console.log("user added correctly "+u)
+   console.log("user added correctly "+f)
    this.userService.userFound=true
    this.router.navigateByUrl('/myprofile')
 })
-    }else{
-      console.log('wrong email used')
-      this.email_used=true
-    }
-  
-}).catch(err=>console.log("from post user data :"+err))
 
  }
+
 
  onCheckPassword(f:any){
   if(f.password===f.confirmPassword){
@@ -90,21 +50,21 @@ this.userService.getAllUsers().then((data)=>{
   }
   console.log("the original password  is "+f.password);
   console.log("the password confirmed is "+f.confirmPassword);
-  
+
  }
 
 
 
  onCheckEmail(f:any){
- 
+
   let data
   let long
- 
+
  let mail = f
  this.http.get<UserInterface[]>("http://localhost:3000/users").subscribe((users)=>{
    data=users
    console.log("data array "+data.length);
-   
+
    long=data.length
    for (let i=0;i<long;i++){
      console.log("email from array :"+data[i].email+" mail formulaire :"+mail);
@@ -114,7 +74,7 @@ this.userService.getAllUsers().then((data)=>{
      }else this.email_used=false
    }
  console.log("valeur de email used "+this.email_used);
- 
+
  })
 }
 

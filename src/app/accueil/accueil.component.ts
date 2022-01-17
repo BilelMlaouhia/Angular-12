@@ -47,11 +47,7 @@ export class AccueilComponent implements OnInit {
   c(){
     this.clicked= !this.clicked
   }
-  saySlt(name:String){
-    alert("wlc "+name)
-    console.log(name);
 
-  }
 
 
   onSendId(id:any){
@@ -146,17 +142,21 @@ if(pageNumber==1){
     this.gestion.ongetComputers().subscribe(data=>{
       this.pcs=data
       let longeur= this.pcs.length/6
+       if(this.pcs.length>=1){
+        for(let n=0;n<longeur;n++){
+          this.numbrePages[n]=n+1
+          this.selected[n]=false
+        }
+         this.selected[1]=true
+         this.lastPage=1
+        //  this.firstof=true
+        for(let i=0;i<6;i++){
+          this.allPages[i]=this.pcs[i]
+        }
+       }else{
+       this.allPages=[]
+       }
 
-    for(let n=0;n<longeur;n++){
-      this.numbrePages[n]=n+1
-      this.selected[n]=false
-    }
-     this.selected[1]=true
-     this.lastPage=1
-    //  this.firstof=true
-    for(let i=0;i<6;i++){
-      this.allPages[i]=this.pcs[i]
-    }
     })
    }
 

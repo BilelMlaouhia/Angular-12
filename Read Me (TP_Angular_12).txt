@@ -1,11 +1,14 @@
-
+Cette TP fait par Mlaouhia Bilel
+tÃ©l/whatsApp : 00216 20606983
+E-mail: bilelmlawhia@gmail.com
+lien de app dans github: https://github.com/BilelMlaouhia/Angular-12.git
 
 l'application sert a vendre des items comme des pc portable par exemple
 
-TP Anuglar version CLI 12.1 réaliser par Mlaouhia Bilel
+TP Anuglar version CLI 12.1 rï¿½aliser par Mlaouhia Bilel
 
-Backend: json server 0.17.0 => to run server : json-server Nom_de_votre_base(format json) 
-note: le fichiers backend doit être crée dans le dossier src et en dehors de fichier app
+Backend: json server 0.17.0 => to run server : json-server Nom_de_votre_base(format json)
+note: le fichiers backend doit ï¿½tre crï¿½e dans le dossier src et en dehors de fichier app
 
 Frontend: Angular 12.1 + Bootstrap 5.0 + fontAwesome 4.7.0
 note : to run server => ng serve -o
@@ -18,15 +21,22 @@ les modules utiliser dans cette application web:
 - FormsModule
 - ReactiveFormsModule
 
-Pipe crée: 
+Pipe crï¿½e:
 - prixDinar => affiche le montant original + TND => exp: 700 devenir 700 TND
-note: pour creé une pipe taper ng g pipe Nom_Pipe
+note: pour creï¿½ une pipe taper ng g pipe Nom_Pipe
 
-pagination: 
-- avoir seulement le nombre des produits désiré a être afficher depuis la base (6 produits pour chaque page)
+pagination:
+- avoir seulement le nombre des produits dï¿½sirï¿½ a ï¿½tre afficher depuis la base (6 produits pour chaque page)
+
+filtrage de recherche avec un rÃ©pagination AppRoutingModule
+- avoir touts les produits ayant le contenu disÃ©rer
 
 Gestion des erreures de saisie et messages de comminucation:
-- grâce au modules de validation fournie par Angular (valid,invalid,dirty,pristine,touched,untouched) 
+- grï¿½ce au modules de validation fournie par Angular (valid,invalid,dirty,pristine,touched,untouched)
 
 Icons :
-- fournie par la bibliotéque font awsome 
+- fournie par la bibliotï¿½que font awsome
+
+comminucation entre les components utilise les techniques des services en plus que Subject,Object,BehaviorSubject
+
+Merci de lire cette note

@@ -91,15 +91,14 @@
 
             </div>
             <br>
-            <input type="file" #image  (change)="onGetImage($event) ">
+            <label for="" class="label-control">Image url </label>
+            <input type="text" #image  [value]="userForm.value.image" class="form-control" >
             <br><br>
 
-            <div *ngIf="img" with="30px"  >
-            <img src="assets/userImage/{{img}} " width="180 erm" >
+            <div *ngIf="userForm.value.image" with="30px"  >
+            <img [src]="userForm.value.image " width="180 erm" >
           </div>
-          <div *ngIf="!img" with="30px"  >
-            <img [src]="'assets/userImage/'+userForm.value.image" width="180 erm">
-          </div>
+
             <br><br>
             <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid" >Submit</button>
           </form>
