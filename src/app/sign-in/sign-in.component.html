@@ -82,8 +82,9 @@
 
         <br>
      <input type="text " #image="ngModel" ngModel name="image" class="form-control">
-      <div *ngIf="image.value" width="180 erm">
-        <img [src]="image.value" >
+     <br><br>
+      <div *ngIf="image.value" >
+        <img [src]="image.value" width="200erm" >
       </div>
         <br><br>
         <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Register</button>

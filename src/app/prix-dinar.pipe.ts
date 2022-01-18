@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class PrixDinarPipe implements PipeTransform {
 
   transform(value: number): unknown {
-    return (' '+value+ ' TND');
+    return (' '+value+',000 TND');
   }
 
 }

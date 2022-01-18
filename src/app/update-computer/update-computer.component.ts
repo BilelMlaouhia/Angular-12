@@ -41,13 +41,13 @@ export class UpdateComputerComponent implements OnInit {
    }
 
    formGroupComputer:FormGroup = this.formBuilder.group({
-     id:[1],
+     id:[0,Validators.required],
      nom:["",[Validators.required,Validators.minLength(3)]],
-     prix:[,[Validators.required]],
-     quantity:[,[Validators.required]],
+     prix:[0,[Validators.required]],
+     quantity:[0,[Validators.required]],
      description:["",[Validators.required,Validators.minLength(20)]],
-     image:[""],
-     userId:[1]
+     image:["",Validators.required],
+     userId:[0,Validators.required]
   })
 
 
@@ -61,13 +61,13 @@ export class UpdateComputerComponent implements OnInit {
       let d:any={}
       d=data
      this. formGroupComputer.setValue({
-       id:[d.id],
-       nom:[d.nom],
-       prix:[d.prix],
-       quantity:[d.quantity],
-       description:[d.description],
-       image:[d.image],
-       userId:[d.userId]
+       id:d.id,
+       nom:d.nom,
+       prix:d.prix,
+       quantity:d.quantity,
+       description:d.description,
+       image:d.image,
+       userId:d.userId
 
      })
      })
@@ -88,7 +88,7 @@ export class UpdateComputerComponent implements OnInit {
 
   })}
 
-   onGetComputers(){
+   onGetComputers():Promise<pcGamer>{
 
        return new Promise((resolve,reject)=>{
         this.gestion.ongetComputers().subscribe(pc=>{
@@ -96,10 +96,11 @@ export class UpdateComputerComponent implements OnInit {
           for(let i=0;i< this.computers.length;i++){
            if(this.computers[i].id==this.currentId) {
              this.need=this.computers[i]}
+
           }
-          // console.log("from onGetComputer name = "+this.need?.nom);
+
          if(this.need)resolve(this.need)
-         else reject('can not find item line 67')
+         else reject('can not find item line 67 update computer .ts')
        })
        })
 
@@ -111,21 +112,17 @@ export class UpdateComputerComponent implements OnInit {
 
    onUpdateComputer(){
 
-    let formDetails = this.formGroupComputer.value
-    let url="http://localhost:3000/computers/"+formDetails.id
+     let url="http://localhost:3000/computers/"+this.formGroupComputer.value.id
 
-     console.log("the id from on update computer is id ="+formDetails.id);
-
-
-
-        this.http.put(url,this.formGroupComputer).toPromise().then(data=>{
+        this.http.put(url,this.formGroupComputer.value).subscribe(data=>{
        console.log("updating done correctly "+data);
        this.pcUpdated=true
-       }).then(()=>{
-         setInterval(()=>{
-         this.router.navigateByUrl('/mycomputers')
-         },2000)
+       setInterval(()=>{
+        this.router.navigate(['/mycomputers'])
+        },600)
        })
+
+
     }
 
    showPcId(){
