@@ -1,25 +1,22 @@
 
-<div   *ngFor="let pc of pcs">
+<div class="row row-cols-3" style="margin-top: 30px;">
+<div   *ngFor="let pc of myPcs; index as i">
 
-    <div *ngIf="pc.userId==ID">
-
-        <div class="card mx-auto" style="width: 400px">
+        <div class="card mx-auto col" style="width: 30remx;min-height: 30rem;" >
             <img [src]="pc.image"   >
             <div class="card-body">
              <!-- <p>{{pc.userId}} </p> -->
                  <p  > <b>Computer's Id :</b>{{pc.id}}</p>
                  <p > <b>name :</b>{{pc.nom}}</p>
-                 <p > <b>description :</b>{{pc.description}}</p>
+                 <p *ngIf="showDetails[i] " > <b>description :</b>{{pc.description}}</p>
                  <p > <b>quantity :</b>{{pc.quantity}} pieces left</p>
                  <p > <b>price :</b>{{pc.prix | prixDinar}}</p>
-
-                 <button class="btn btn-primary"  routerLink="/updateComputer/{{pc.id}} " (click)="onSendId(pc.id) " style="right: 0;" >Edit </button>
+                 <button class="btn btn-primary"  routerLink="/updateComputer/{{pc.id}} " (click)="onSendId(pc.id) " style="margin-right: 10px;float: right;" >Edit </button>
+                 <button class="btn btn-info" (click)="onShowDetails(i)"><span *ngIf="!showDetails[i] " style="float: right;">Show</span><span *ngIf="showDetails[i]">Hide</span> Details</button>
             </div>
         </div>
-    </div>
 
     <br>
-
+</div>
 </div>
 
-<router-outlet></router-outlet>
