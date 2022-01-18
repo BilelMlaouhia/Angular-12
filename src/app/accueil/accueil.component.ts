@@ -12,6 +12,7 @@ import { Subject } from 'rxjs';
 })
 export class AccueilComponent implements OnInit {
   show:String=""
+  showdescription:boolean[]=[]
   public pcs:pcGamer[]= []
   public user:UserInterface[]=[]
   public currentUser:any
@@ -48,7 +49,9 @@ export class AccueilComponent implements OnInit {
     this.clicked= !this.clicked
   }
 
-
+  onShowDescpiton(i:number){
+    this.showdescription[i]=! this.showdescription[i]
+  }
 
   onSendId(id:any){
   this.gestion.computerIdNow=id;
@@ -146,12 +149,14 @@ if(pageNumber==1){
         for(let n=0;n<longeur;n++){
           this.numbrePages[n]=n+1
           this.selected[n]=false
+
         }
          this.selected[1]=true
          this.lastPage=1
         //  this.firstof=true
         for(let i=0;i<6;i++){
           this.allPages[i]=this.pcs[i]
+          this.showdescription[i]=false
         }
        }else{
        this.allPages=[]

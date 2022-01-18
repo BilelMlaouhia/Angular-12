@@ -9,7 +9,7 @@
 <br>
 <div class="alert alert-info text-center" *ngIf="allPages.length==0 " >Sorry there is no Item here to be showed </div>
 <div class="row row-cols-3">
-  <div   *ngFor="let pc of allPages" >
+  <div   *ngFor="let pc of allPages; index as i" >
 
 
 
@@ -18,10 +18,11 @@
       <div class="card-body ">
 
            <!-- <p  > <b>Id :</b>{{pc.id}}</p> -->
-           <p > <b>name :</b>{{pc.nom}}</p>
-           <p > <b>description :</b>{{pc.description}}</p>
-           <p > <b>quantity :</b>{{pc.quantity}} pieces left</p>
-           <p > <b>price :</b>{{pc.prix | prixDinar}}</p>
+           <p > <b>Name :</b>{{pc.nom}}</p>
+           <p *ngIf="showdescription[i] "> <b>Description :</b>{{pc.description}}</p>
+           <p > <b>Quantity :</b>{{pc.quantity}} pieces left</p>
+           <p > <b>Price :</b>{{pc.prix | prixDinar}}</p>
+           <button class="btn btn-primary" (click)="onShowDescpiton(i)"><span *ngIf="!showdescription[i]">show</span> <span *ngIf="showdescription[i]">hide</span> description</button>
 
       </div>
   </div>
