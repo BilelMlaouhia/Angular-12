@@ -108,6 +108,12 @@
       "id": 8
     },
     {
+      "nom": "Modern 15 | 15.6\" FHD | i3-1115G4 | 8GB RAM | 256GB SSD",
+      "prix": 1789,
+      "quantity": 33,
+      "description": "Processeur : Intel Core i3 1115G4 (1.70 GHz / 4.10 GHz)\nNombre du Cores : 2\nNombre de threads : 4\nTaille du Memoire : 8GB\nType de Memoire : DDR4\nFréquence de memoire : 3200MHz\nMemoire Max : 64GB\nChipset Graphique : Intel Iris Xe Graphics\nTaille de L'ecran : 15.6 pouces\nResolution Max : 1920 x 1080 pixels\nType de dalle : LED IPS \nFormat : 16:9\nRefrech Rate : 60Hz\nStockage : SSD 256GB\nInterface de d",
+      "image": "https://apibackend.mega-pc.net//uploads/gallerie/1642155228925.webp",
+      "userId": 3,
       "id": 9
     }
   ]
