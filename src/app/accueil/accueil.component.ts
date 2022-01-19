@@ -206,7 +206,10 @@ if(pageNumber==1){
 
    }
 
-
+   addToCard(pc:pcGamer) {
+  this.gestion.onAddProductsToCard(pc)
+  this.gestion.lengthChosen$.next(this.gestion.chosen.length)
+   }
 
 
 

@@ -20,7 +20,8 @@ import { GestionService } from '../services/gestion.service';
 })
 
 export class NavBarComponent implements OnInit {
-
+  prodNb=0
+chosenProducts:pcGamer[]=[]
 how:String = "slt"
 public ok=localStorage.getItem('verifier')
 public okUser :any
@@ -42,7 +43,9 @@ public allPages:pcGamer[]=[]
 
   ngOnInit(): void {
     this.currentUserId=this.userService.currentUser
-   this.userService.showing$.subscribe(res=>this.how=res)
+    this.userService.showing$.subscribe(res=>this.how=res)
+    this.gestion.lengthChosen$.subscribe(res=>this.prodNb=res)
+
 
   }
 

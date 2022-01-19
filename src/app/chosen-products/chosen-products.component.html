@@ -1,0 +1,37 @@
+
+
+<br>
+<div class="alert alert-primary text-center" *ngIf="totalPrice>0"><b>Total Price: {{totalPrice | prixDinar}}</b> </div>
+<button class="btn btn-danger text-center" (click)="onClearChoices() " >clear list </button>
+
+<div style="margin-right: 80px;">
+</div>
+<br>
+<div class="alert alert-info text-center" *ngIf="chosenProducts.length==0 " >Sorry there is no Item here to be showed </div>
+
+<div class="row row-cols-3">
+  <div   *ngFor="let pc of chosenProducts; index as i" >
+
+    <div class="card mx-auto col" style="width: 30remx;min-height: 30rem;" >
+      <img [src]="pc.image" style="height: 15rem;margin-left:auto;margin-right: auto ;max-width:20rem ; "  >
+      <div class="card-body ">
+           <!-- <p  > <b>Id :</b>{{pc.id}}</p> -->
+           <p > <b>Name :</b>{{pc.nom}}</p>
+           <p *ngIf="showdescription[i] "> <b>Description :</b>{{pc.description}}</p>
+           <p > <b>Quantity :</b>{{pc.quantity}} pieces left</p>
+           <p > <b>Price :</b>{{pc.prix | prixDinar}}</p>
+           <button class="btn btn-primary" (click)="onShowDescpiton(i)"><span *ngIf="!showdescription[i]">show</span> <span *ngIf="showdescription[i]">hide</span> description</button>
+           <button class="btn btn-outline-danger " style="margin-left: 20px;" (click)=" onDeleteProd(i)" >Delete <i class="fa fa-trash"> </i></button>
+
+          </div>
+  </div>
+    <br>
+</div>
+</div>
+
+
+
+
+
+
+

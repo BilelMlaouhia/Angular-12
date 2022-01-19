@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AccueilComponent } from './accueil/accueil.component';
 import { AddPcComponent } from './add-pc/add-pc.component';
 import { AuthGuardGuard } from './auth-guard.guard';
+import { ChosenProductsComponent } from './chosen-products/chosen-products.component';
 import { LoginComponent } from './login/login.component';
 import { MycomputersComponent } from './mycomputers/mycomputers.component';
 import { AuthService } from './services/auth.service';
@@ -14,7 +15,7 @@ import { UpdateUserComponent } from './update-user/update-user.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes = [
-  
+
   {path:'myprofile/:id',component:UserProfileComponent},
   {path:'myprofile',component:UserProfileComponent,canActivate:[AuthGuardGuard]},
   {path:'acceuil', component:AccueilComponent},
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path:'login',component:LoginComponent,canActivate:[UnAuthGuard]},
   {path:'logout',redirectTo:'/login'},
   {path:'',component:AccueilComponent},
+  {path:'chosen',component:ChosenProductsComponent},
   {path:'**',redirectTo:'/acceuil'}
 ];
 

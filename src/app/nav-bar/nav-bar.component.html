@@ -6,7 +6,7 @@
 
         </a>
         <a class="navbar-brand  text-white" routerLink="/accueil">
-          <i class="fa fa-home text-white" > Accueil</i>
+          <i class="fa fa-home text-white" > home</i>
 
             </a>
 
@@ -30,7 +30,11 @@
       </ul>
     </div>
 
-
+<ul  style="margin-top: 12px;">
+  <a class="navbar-brand  "  routerLink="/chosen" >
+    <i class="fa fa-shopping-cart text-white"> <span *ngIf="prodNb<=0"> Shop </span>  <span *ngIf="prodNb>0"> ( {{prodNb}} ) item<span *ngIf="prodNb>1">s</span> </span> </i>
+  </a>
+</ul>
 
     <ul >
 
@@ -39,6 +43,7 @@
 
 
   </ul>
+
 
   <ul >
      <button *ngIf="!observerStatus" class="btn btn-light  sm ml-4" routerLink="/signin" style="margin-top: 16px;"><i class="fa fa-user-plus">  Sign Up </i>  </button>

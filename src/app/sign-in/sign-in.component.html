@@ -81,13 +81,14 @@
         </div>
 
         <br>
+        <label  class="label-control">Image URL</label>
      <input type="text " #image="ngModel" ngModel name="image" class="form-control">
      <br><br>
       <div *ngIf="image.value" >
         <img [src]="image.value" width="200erm" >
       </div>
         <br><br>
-        <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Register</button>
+        <button type="submit" class="btn btn-primary" style="margin-right: 20px;" [disabled]="f.invalid">Register</button>
         <button type="submit" class="btn btn-info" routerLink="/login" >Login </button>
       </form>
 
