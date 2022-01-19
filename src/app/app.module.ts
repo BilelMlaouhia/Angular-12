@@ -21,6 +21,7 @@ import { AuthService } from './services/auth.service';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { UnAuthGuard } from './un-auth.guard';
 import { PrixDinarPipe } from './prix-dinar.pipe';
+import { ChosenProductsComponent } from './chosen-products/chosen-products.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { PrixDinarPipe } from './prix-dinar.pipe';
     MycomputersComponent,
     SignInComponent,
     UpdateUserComponent,
-    PrixDinarPipe
+    PrixDinarPipe,
+    ChosenProductsComponent
     
   ],
   imports: [
