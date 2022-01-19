@@ -33,7 +33,10 @@ export class AccueilComponent implements OnInit {
 
 
    }
-
+   tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bsi-toggle="tooltip"]'))
+   tooltipList = this.tooltipTriggerList.map((tooltipTriggerEl)=> {
+    return Tooltip(tooltipTriggerEl)
+  })
   ngOnInit(): void {
     this.pagination()
 
@@ -213,4 +216,7 @@ if(pageNumber==1){
 
 
 
+}
+function Tooltip(tooltipTriggerEl: never): any {
+  throw new Error('Function not implemented.');
 }

@@ -12,19 +12,22 @@ export class FooterComponent implements OnInit , OnDestroy{
 
 
   constructor(private fb:FormBuilder) {
-  
+
    }
 
-   
 
+    tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    tooltipList = this.tooltipTriggerList.map((tooltipTriggerEl)=> {
+     return Tooltip(tooltipTriggerEl)
+   })
 
   ngOnInit(): void {
-   
-      
-   
+
+
+
   }
 
-  
+
 
 
   ngOnDestroy(){
@@ -32,3 +35,7 @@ export class FooterComponent implements OnInit , OnDestroy{
   }
 
 }
+function Tooltip(tooltipTriggerEl: never): any {
+  throw new Error('Function not implemented.');
+}
+
