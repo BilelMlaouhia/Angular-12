@@ -54,6 +54,7 @@ export class AccueilComponent implements OnInit {
 
   onShowDescpiton(i:number){
     this.showdescription[i]=! this.showdescription[i]
+
   }
 
   onSendId(id:any){

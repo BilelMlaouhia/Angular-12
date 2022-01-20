@@ -19,7 +19,7 @@
            <p *ngIf="showdescription[i] "> <b>Description :</b>{{pc.description}}</p>
            <p > <b>Quantity :</b>{{pc.quantity}} pieces left</p>
            <p > <b>Price :</b>{{pc.prix | prixDinar}}</p>
-           <button class="btn btn-primary" (click)="onShowDescpiton(i)"><span *ngIf="!showdescription[i]">show</span> <span *ngIf="showdescription[i]">hide</span> description</button>
+           <button class="btn btn-outline-primary" (click)="onShowDescpiton(i)"><span *ngIf="!showdescription[i]">show</span> <span *ngIf="showdescription[i]">hide</span> description</button>
            <button class="btn btn-outline-success " data-bsi-toggle="tooltip" data-bs-placement="bottom" title="Add To Card" style="margin-left: 20px;" (click)="addToCard(pc) " >Add <i class="fa fa-cart-plus"> </i></button>
       </div>
   </div>

@@ -19,4 +19,23 @@
     <br>
 </div>
 </div>
+<nav aria-label="Page navigation example" >
+  <ul class="pagination justify-content-center">
+
+      <li  [ngClass]="selectedPrevious ?'page-item active ':'page-item' ">
+      <button class="page-link" (click)="changePagePrevious() " > <span *ngIf="!firstof">Previous</span> <span *ngIf="firstof">First Page</span> </button>
+    </li>
+<div  *ngFor="let pageNb of numbrePages">
+  <li   [ngClass]="selected[pageNb] ?'page-item active ':'page-item' ">
+      <a  class="page-link"  (click)="changePage(pageNb) " >{{pageNb}} </a>
+    </li>
+</div>
+
+
+    <li [ngClass]="selectedNext ?'page-item active ':'page-item' ">
+      <button class="page-link"  (click)="changePageNext()"><span *ngIf="!endof"> Next</span> <span *ngIf="endof">Last Page</span></button>
+    </li>
+  </ul>
+
+</nav>
 
