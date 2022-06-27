@@ -63,9 +63,8 @@ export class LoginComponent implements OnInit {
   }
 
   findUser(detail:any){
-this.user.getAllUsers().then((data)=>{
-  this.allUsers=data
-  })
+
+this.allUsers = this.user.findAllUser()
   for(let i=0;i<this.allUsers.length;i++){
 
       if(this.allUsers[i].email == detail.email){
@@ -94,47 +93,32 @@ this.user.getAllUsers().then((data)=>{
   postDetails(form:any){
 
   this.posted=true
- console.log("loged in with success");
-     this.checkIfVerifUser(form).then((id)=>{
-      // this.navBar.onLogIn()
-     this.navBar.okUser = true
-     this.user.Send_Connected_User_Id(id)
+ //console.log("loged in with success");
+  //   this.checkIfVerifUser(form)
+
+    this.user.getUserByEmailAndPassword(form.email,form.password).subscribe(res=>{
+    //  console.log("the user Id :"+res.id);
+       console.log("user courant "+JSON.stringify(res));
+      this.user.userOK=true
+      this.navBar.okUser = true
+
+       localStorage.removeItem('verifier')
       localStorage.setItem('verifier','true')
-           return id
-     }).then((uid)=>{
-         this.logInWithNavBar()
-        localStorage.setItem('id',`${uid}`)
-
-       if(localStorage.getItem('verifier')=='true'){
-
-        localStorage.setItem('userId',`${uid}`)
-       }
-
-
-      this.user.newUserId=uid
-      this.router.navigateByUrl('/myprofile/'+uid)
-
-
-     }).catch(err=>console.log(err)
-     )
+      this.logInWithNavBar()
+      localStorage.setItem('id',`${res.id}`)
+        localStorage.removeItem('userId')
+        localStorage.setItem('userId',`${res.id}`)
+       this.user.userFound = res
+      this.user.newUserId=res.id
+      this.user.Send_Connected_User_Id(res.id)
+      this.router.navigateByUrl('/myprofile/'+res.id)
+    })
 
   }
 
-   checkIfVerifUser(form:any){
-     return new Promise((resolve,reject)=>{
-      this.foundUser=this.findUser(form)
-      this.user.userFound=this.foundUser
-      console.log("from line 57 "+this.gotUser);
-
-     if( this.gotUser){
-      this.authService.autoriser=true
-      console.log("line 61 canActivet status :"+this.authService.canActivated());
-
-       this.user.userOK=true
-       resolve(this.foundUser.id)
-     }else reject("can not find user!!")
-     })
-   }
+  //  checkIfVerifUser(form:any){
+  //    return
+  //  }
 
    logInWithNavBar(){
    this.user.sendLoginStatus(true)
@@ -155,6 +139,21 @@ this.user.getAllUsers().then((data)=>{
      this.email_err=null
      this.password_err=null
    }
+
+   easyLogging(form:any){
+    this.user.findAllUser().subscribe(res=>{
+      res.forEach(a=>{
+        console.log(a.email+" nom: "+a.nom);
+
+      })
+    })
+
+   }
+
+   loggin(form:any){
+    this.user.getLongging(form)
+   }
+
 
 
 }

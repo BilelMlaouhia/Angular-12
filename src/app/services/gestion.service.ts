@@ -11,8 +11,8 @@ import { UserInterface } from './user.interface';
 })
 
 export class GestionService {
-private url_computer="http://localhost:3000/computers"
-private url_user="http://localhost:3000/users"
+private url_computer="http://localhost:8082/produit"
+private url_user="http://localhost:8082/acteur"
 public paramsRoute?:any
 public computerIdNow:any
 chosenProducts$ = new Subject <pcGamer[]>()
@@ -41,7 +41,7 @@ lengthChosen$ =  new Subject<number>()
   }
 
   ongetComputers():Observable<pcGamer[]>{
-    return this.http.get<pcGamer[]>(this.url_computer)
+    return this.http.get<pcGamer[]>(this.url_computer+"/all")
   }
 
   onGetUser():Observable<UserInterface[]> {

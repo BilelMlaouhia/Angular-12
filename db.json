@@ -12,16 +12,23 @@
       "id": 1
     },
     {
-      "email": "bilel@gmail.com",
+      "id": 2,
       "fullName": "Bilel Mlawhia",
-      "section": "informatique",
-      "level": "2",
-      "className": "Ti 1 promo6",
-      "password": "Bilelbilel12",
-      "confirmPassword": "Bilelbilel12",
-      "image": "https://i.morioh.com/210427/812f8b51.webp",
-      "id": 2
-    },
+      "section": [
+        "informatique"
+      ],
+      "password": [
+        "Bilelbilel12"
+      ],
+      "image": [
+        "https://i.morioh.com/210427/812f8b51.webp"
+      ],
+      "level": "2 ",
+      "email": "bilel@gmail.com",
+      "className": [
+        "Ti 1 promo6"
+      ]
+    }, 
     {
       "email": "mohamed@gamil.com",
       "fullName": "Mouhamed Mlaouhia",

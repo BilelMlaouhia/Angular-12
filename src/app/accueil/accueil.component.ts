@@ -3,7 +3,7 @@ import { GestionService } from '../services/gestion.service';
 import { pcGamer } from '../pc.interface';
 import { UserInterface } from '../services/user.interface';
 import { UsersService } from '../services/users.service';
-import { Subject } from 'rxjs';
+
 
 @Component({
   selector: 'app-accueil',
@@ -147,6 +147,8 @@ if(pageNumber==1){
 
    pagination(){
     this.gestion.ongetComputers().subscribe(data=>{
+      console.log("tout les produits: "+JSON.stringify(data));
+
       this.pcs=data
       let longeur= this.pcs.length/6
        if(this.pcs.length>=1){

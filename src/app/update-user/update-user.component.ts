@@ -43,7 +43,7 @@ export class UpdateUserComponent implements OnInit {
     image:[''],
     level:[3,Validators.required],
     email:['',[Validators.required,Validators.minLength(8),Validators.pattern("^([A-Za-z0-9._%+-]{3,40})+@[A-Za-z0-9.-]+\.[A-Za-z0-9._%+-]{2,9}$")]],
-    className:['',Validators.required],
+    className:['Client',Validators.required],
     checkPassword:['',[Validators.required,Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$')]]
 
    })
@@ -65,14 +65,14 @@ export class UpdateUserComponent implements OnInit {
   return new Promise((resolve,reject)=>{
     this.userForm.setValue({
       id:[data.id],
-      fullName:[data.fullName],
+      fullName:[data.nom],
       section:[data.section],
       password:[data.password],
       checkPassword:[data.password],
       image:[data.image],
       level:[data.level],
       email:[data.email],
-      className:[data.className]
+      className:["Client"]
 
      })
      resolve(this.userForm.value)
@@ -89,23 +89,26 @@ export class UpdateUserComponent implements OnInit {
 
 
 let newData ={
-  id:f.id,
-  fullName:f.fullName,
+  id:f.id[0],
+  nom:f.fullName,
   section:f.section,
-  password:f.password,
+  password:f.password[0],
   image:f.image,
   level:f.level,
   email:f.email,
-  className:f.className
+  role:f.className
 }
+console.log(JSON.stringify(newData));
+
 // console.log("new data "+JSON.stringify(newData));
 
-this.http.put("http://localhost:3000/users/"+f.id,newData).pipe(catchError(this.errorHandler)).toPromise()
-.then((info)=>{
-  console.log("user updated correctly !!"+info);
-  this.userUpdated=true
-}).catch(err=>{console.log(err)
-})
+// this.http.put("http://localhost:3000/users/"+f.id,newData).pipe(catchError(this.errorHandler)).toPromise()
+// .then((info)=>{
+//   console.log("user updated correctly !!"+info);
+//   this.userUpdated=true
+// }).catch(err=>{console.log(err)
+// })
+this.userService.updateActeur(newData)
 
  }
 

@@ -49,7 +49,25 @@
               <small class="text-danger" *ngIf="quantity.errors?.type">quantity might be a number! <br></small>
             </div>
             <br>
+            <div class="fomr-group">
+              <label for="type" class="from-lable" [class.text-danger]="type.invalid && type.touched" [class.text-success]="type.touched && type.valid" > Type</label>
+              <select id="type" #type="ngModel" ngModel class="form-select">
 
+                <option name="type" value="Mobile" id="type">Mobile</option>
+
+                <option name="type" value="Computer" id="type">Computer</option>
+            </select>
+            <div *ngIf="type.invalid && type.touched">
+              <br>
+              <small class="text-danger">choose a type please</small>
+            </div>
+            </div> <br>
+            <div class="form-group">
+              <label for="type" class="from-lable" [class.text-danger]="type.invalid && type.touched" [class.text-success]="type.touched && type.valid" >Additionel:  <div *ngIf="type.value=='Mobile'">Imei Number</div>
+               <div *ngIf="type.value=='Computer'">Processor</div> {{type.value}} </label>
+              <input type="text" class="form-control" name="special" required #special="ngModel" [ngModel] placeholder="information Additionel"
+              [class.is-invalid]="special.touched && special.invalid" [class.is-valid]="special.touched && special.valid">
+            </div> <br>
           <label  class="label-control">Image URL</label>
 
           <input type="text" #image="ngModel" ngModel  name="image" class="form-control"  >

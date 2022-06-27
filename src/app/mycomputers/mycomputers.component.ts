@@ -12,7 +12,8 @@ import { UsersService } from '../services/users.service';
 export class MycomputersComponent implements OnInit {
   public showDetails:boolean[]=[]
   public myPcs:pcGamer[]=[]
-  public pcs:pcGamer[]= []
+  // public pcs:pcGamer[]= []
+  pcs:any[]=[]
   public user:UserInterface[]=[]
   public currentUser?:Object
   public ID:any
@@ -31,6 +32,11 @@ export class MycomputersComponent implements OnInit {
   constructor(private gestion:GestionService,private userService:UsersService) {
     this.get_user_Id()
  this.ID= localStorage.getItem('id')
+ console.log("id user courrant ligne 35: "+this.ID);
+//  this.gestion.ongetComputers().subscribe(res=>{
+// this.pcs=res
+//  })
+
    }
 
   ngOnInit(): void {
@@ -143,23 +149,27 @@ export class MycomputersComponent implements OnInit {
 
 
       this.gestion.ongetComputers().subscribe(data=>{
+        console.log("depuis my computers ligne 152: "+JSON.stringify(data));
+
         this.pcs=data
 
           this.gestion.onGetUser().subscribe((user)=>{
             this.user=user
+          })
             let j=0
             for (let i=0;i<this.pcs.length;i++){
-              if(this.ID==this.pcs[i].userId){
+              console.log("id acteur depuis ligne 153: "+this.pcs[i].acteur.id);
+
+             if(this.ID==this.pcs[i].acteur.id){
                 this.myPcs[j]=this.pcs[i]
                 this.showDetails[j]=false
                 j++
-              }
+             }
             }
-          })
+
           this.numbrePages=[]
           let longeur=this.myPcs.length/6
           if(longeur<=0){longeur=1}
-console.log("longeur est :"+longeur);
 
              if(this.myPcs.length<=1){
                this.numbrePages[0]=1

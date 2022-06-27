@@ -12,10 +12,11 @@
 
                  <center>
 
-                    <h5 class="card-title">{{user.fullName}} </h5> <br><br>
-                    <p class="card-text"> <b>Class :{{user.className}} </b>  </p>
-                    <p class="card-text"> <b>Level : {{user.level}} </b> </p>
+                    <h5 class="card-title">{{user.nom}} </h5> <br><br>
+                    <p class="card-text"> <b>email :{{user.email}} </b>  </p>
+                    <p class="card-text"> <b>password : {{user.password}} </b> </p>
                     <p class="card-text"> <b>Section : {{user.section}} </b>  </p>
+                    <!-- <p class="card-text"> <b>Section : {{user.role}} </b>  </p> -->
                     <div class="alert alert-danger" *ngIf="!deleteUser">
                         Do you really want your to delete Account! <br>
                     </div>

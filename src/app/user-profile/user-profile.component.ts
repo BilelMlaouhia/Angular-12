@@ -24,10 +24,14 @@ export class UserProfileComponent implements OnInit {
 
     })
 
+
    }
 
   ngOnInit(): void {
     this.authUser=this.user.userFound
+    console.log(JSON.stringify("current user is : "+this.authUser));
+
+    this.getFindUserById(this.authUser.id)
   }
 
   getDeleteUser(id:number){
@@ -59,6 +63,9 @@ export class UserProfileComponent implements OnInit {
 
   }
 
+  getFindUserById(id:number){
+    this.allUsers = this.user.findUserById(id)
+  }
 
 
 }

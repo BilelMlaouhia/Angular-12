@@ -51,26 +51,31 @@ console.log("from onGetImage method "+this.selectedFile);
   onPostComputer(f:any){
     let userId = Number(localStorage.getItem('userId'))
     let formValues = f.value
-    this.newInformations={
-      id:this.lastId,
-      nom:formValues.name,
-      prix:formValues.price,
-      quantity:formValues.quantity,
+    let prod={
       description:formValues.description,
       image:formValues.image,
-      userId:userId
+      name:formValues.name,
+      prix:formValues.price,
+      quantity:formValues.quantity,
+      num_imei:formValues.special,
+      pross_pc:formValues.special,
+      acteur_id:userId
+
     }
+  //   let t="Mob"
+  //   if(formValues.type.value=='Computer') t="Pc"
+  // this.http.put("http://localhost:8082/produit/ajout"+t , prod).toPromise().then(data=>{
+  //   console.log("done posting "+data);
+  //   this.added=true
 
-  this.http.post("http://localhost:3000/computers",this.newInformations).toPromise().then(data=>{
-    console.log("done posting "+data);
-    this.added=true
+  // }).then(()=>{
+  //   setInterval(()=>{
+  //   this.router.navigateByUrl('/accueil')
 
-  }).then(()=>{
-    setInterval(()=>{
-    this.router.navigateByUrl('/accueil')
+  //   },1000)
+  // }).catch(err=>err)
+  console.log("valeur de type est: "+JSON.stringify(formValues));
 
-    },1000)
-  }).catch(err=>err)
 
     }
 

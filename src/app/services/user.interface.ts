@@ -2,11 +2,12 @@
 
 export interface UserInterface {
      id:number,
-     fullName:String,    
+     fullName:String,
      level:number,
      className:String ,
      section:String,
      image:String,
      password:String,
-     email:String
+     email:String,
+    // mesPaniers:any[]
 }

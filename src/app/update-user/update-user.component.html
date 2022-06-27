@@ -9,7 +9,7 @@
             <div *ngIf="userUpdated" class="alert-success">Account Updated !!</div>
             <div class="form-group">
               <label for="fullName" [class.text-danger]="userForm.get('fullName')?.touched &&userForm.get('fullName')?.invalid"
-              [class.text-success]="userForm.get('fullName')?.touched &&userForm.get('fullName')?.valid" >Full Name</label>
+              [class.text-success]="userForm.get('fullName')?.touched &&userForm.get('fullName')?.valid" >Nom</label>
               <input type="email" class="form-control"  formControlName="fullName" [class.is-valid]="userForm.get('fullName')?.touched &&userForm.get('fullName')?.valid"
               [class.is-invalid]="userForm.get('fullName')?.touched &&userForm.get('fullName')?.invalid" >
               <div class="text-danger" *ngIf="userForm.get('fullName')?.touched &&userForm.get('fullName')?.invalid ">
@@ -37,7 +37,7 @@
               <br>
               <div class="form-group">
                 <label for="exampleInputEmail1" [class.text-danger]="userForm.get('className')?.touched &&userForm.get('className')?.invalid"
-                [class.text-success]="userForm.get('className')?.touched &&userForm.get('className')?.valid">Classe Name</label>
+                [class.text-success]="userForm.get('className')?.touched &&userForm.get('className')?.valid">Role</label>
                 <input type="text" class="form-control" formControlName="className" [class.is-valid]="userForm.get('className')?.touched &&userForm.get('className')?.valid"
                 [class.is-invalid]="userForm.get('className')?.touched &&userForm.get('className')?.invalid">
                 <small class="text-danger" *ngIf="userForm.get('className')?.errors?.required" >className is required <br></small>
@@ -92,7 +92,7 @@
             </div>
             <br>
             <label for="" class="label-control">Image url </label>
-            <input type="text" #image  [value]="userForm.value.image" class="form-control" >
+            <input type="text" formControlName="image"   class="form-control" [value]="userForm.value.image" >
             <br><br>
 
             <div *ngIf="userForm.value.image" with="30px"  >
