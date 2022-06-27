@@ -31,9 +31,6 @@ public observe :any
 
    })
 
-
-
-
    }
 
 
@@ -53,7 +50,13 @@ public observe :any
 
    getAllUsers() {
     return new Promise((resovle,reject)=>{
-      this.http.get("http://localhost:3000/users").subscribe((data)=>{
+      this.http.get<any[]>("http://localhost:8082/acteur/all").subscribe((data)=>{
+        let me:any[]
+        me=data
+        me.forEach(d=>{
+          console.log(JSON.stringify(d));
+
+        })
         this.allUsers=data
         let lastOne= this.allUsers[-1+(this.allUsers.length)]
       this.lastId=lastOne.id
@@ -70,7 +73,7 @@ public observe :any
    }
 
    deleteUser(id:number){
-    this.http.delete("http://localhost:3000/users/"+id).toPromise()
+    this.http.delete("http://localhost:8082/acteur/delete/"+id).toPromise()
     .then(()=>{
 
       console.log("user deleted successfully !!")
@@ -112,6 +115,57 @@ public observe :any
 
    onShowing(val:String){
      this.showing$.next(val)
+   }
+
+   findUserById(id:number):UserInterface{
+    let user:UserInterface= {
+      className:"",
+      email:"",
+      fullName:"",
+      id:0,
+      image:"",
+      level:0,
+      password:"",
+      section:""
+
+    };
+     this.http.get<UserInterface>("http://localhost:8082/acteur/"+id).subscribe(res=>{
+         user=res;
+     })
+    return user
+   }
+
+   findAllUser(){
+
+    return this.http.get<any[]>("http://localhost:8082/acteur/all")
+
+   }
+
+   getLongging(form:any){
+
+    this.http.get("http://localhost:8082/acteur/?email="+form.email+"&password="+form.password).subscribe(res=>{
+     // this.userFound=res
+      console.log(JSON.stringify("resultat depuis getlongging "+(res))
+     )
+     })
+
+    // this.http.get("http://localhost:8082/acteur/all").subscribe(res=>{
+    //   console.log(JSON.stringify(res));
+    // })
+
+   }
+
+   getUserByEmailAndPassword(email:string , password:string){
+
+   return  this.http.get<UserInterface>("http://localhost:8082/acteur/par?email="+email+"&password="+password)
+
+   }
+
+   updateActeur(form:any){
+    this.http.put("http://localhost:8082/acteur/update"+form.role , form).subscribe(res=>{
+      console.log(res);
+      this.router.navigateByUrl('/myprofile')
+    })
    }
 
 }
