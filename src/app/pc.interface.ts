@@ -1,9 +1,9 @@
 export interface pcGamer {
     id:Number,
-    nom:String,
+    name:String,
     quantity:Number,
-    description:String[], 
+    description:String[],
     prix:number,
-    image:String, 
+    image:String,
     userId:number
 }

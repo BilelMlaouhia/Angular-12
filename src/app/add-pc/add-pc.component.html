@@ -8,7 +8,7 @@
 
             <div class="form-group">
 
-            <label for="name" [class.text-success]="name.valid && name.touched" [class.text-danger]="name.invalid && name.touched"> <b>Nom de PC</b></label>
+            <label  [class.text-success]="name.valid && name.touched" [class.text-danger]="name.invalid && name.touched"> <b>Nom de PC</b></label>
               <input type="text" class="form-control" name="name" #name="ngModel" ngModel placeholder="computer's Name" required
               [class.is-valid]="name.touched && name.valid" [class.is-invalid]="name.touched && name.invalid"  >
             </div>
@@ -18,7 +18,7 @@
 
           <br>
             <div class="form-group">
-             <label for="description" [class.text-success]="description.touched && description.valid" [class.text-danger]="description.touched && description.invalid" > <b>Description de PC</b></label>
+             <label  [class.text-success]="description.touched && description.valid" [class.text-danger]="description.touched && description.invalid" > <b>Description de PC</b></label>
               <textarea class="form-control" name="description" required #description="ngModel" ngModel  maxlength="400" minlength="20"
               [class.is-invalid]="description.touched && description.invalid" [class.is-valid]="description.touched && description.valid"  >
                 Describe your Computer</textarea>
@@ -29,7 +29,7 @@
             </div>
             <br>
             <div class="form-group">
-              <label for="price" [class.text-success]="price.valid && price.touched" [class.text-danger]="price.touched && price.invalid" ><b>Prix de PC</b></label>
+              <label  [class.text-success]="price.valid && price.touched" [class.text-danger]="price.touched && price.invalid" ><b>Prix de PC</b></label>
                 <input type="number" class="form-control" name="price" required #price="ngModel" ngModel placeholder="price"
                 [class.is-invalid]="price.touched && price.invalid" [class.is-valid]="price.touched && price.valid" >
             </div>
@@ -40,7 +40,7 @@
 
             <br>
             <div class="form-group">
-              <label for="quantity" [class.text-danger]="quantity.invalid && quantity.touched" [class.text-success]="quantity.touched && quantity.valid"> <b>Quantités disponible</b></label>
+              <label  [class.text-danger]="quantity.invalid && quantity.touched" [class.text-success]="quantity.touched && quantity.valid"> <b>Quantités disponible</b></label>
                 <input type="number" class="form-control" name="quantity" required #quantity="ngModel" ngModel placeholder="quantity"
                 [class.is-invalid]="quantity.touched && quantity.invalid" [class.is-valid]="quantity.touched && quantity.valid">
             </div>
@@ -50,12 +50,13 @@
             </div>
             <br>
             <div class="fomr-group">
-              <label for="type" class="from-lable" [class.text-danger]="type.invalid && type.touched" [class.text-success]="type.touched && type.valid" > Type</label>
-              <select id="type" #type="ngModel" ngModel class="form-select">
+              <label  class="from-lable" [class.text-danger]="type.invalid && type.touched" [class.text-success]="type.touched && type.valid" > Type</label>
+              <select id="ype" #type="ngModel" ngModel class="form-select">
 
-                <option name="type" value="Mobile" id="type">Mobile</option>
+                <option name="type" value="Mobile" >Mobile</option>
 
-                <option name="type" value="Computer" id="type">Computer</option>
+                <option name="type" value="Computer" >Computer</option>
+
             </select>
             <div *ngIf="type.invalid && type.touched">
               <br>
@@ -63,7 +64,7 @@
             </div>
             </div> <br>
             <div class="form-group">
-              <label for="type" class="from-lable" [class.text-danger]="type.invalid && type.touched" [class.text-success]="type.touched && type.valid" >Additionel:  <div *ngIf="type.value=='Mobile'">Imei Number</div>
+              <label  class="from-lable" [class.text-danger]="type.invalid && type.touched" [class.text-success]="type.touched && type.valid" >Additionel:  <div *ngIf="type.value=='Mobile'">Imei Number</div>
                <div *ngIf="type.value=='Computer'">Processor</div> {{type.value}} </label>
               <input type="text" class="form-control" name="special" required #special="ngModel" [ngModel] placeholder="information Additionel"
               [class.is-invalid]="special.touched && special.invalid" [class.is-valid]="special.touched && special.valid">

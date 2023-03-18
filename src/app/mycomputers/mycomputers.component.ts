@@ -32,7 +32,7 @@ export class MycomputersComponent implements OnInit {
   constructor(private gestion:GestionService,private userService:UsersService) {
     this.get_user_Id()
  this.ID= localStorage.getItem('id')
- console.log("id user courrant ligne 35: "+this.ID);
+//  console.log("id user courrant ligne 35: "+this.ID);
 //  this.gestion.ongetComputers().subscribe(res=>{
 // this.pcs=res
 //  })
@@ -152,6 +152,8 @@ export class MycomputersComponent implements OnInit {
         console.log("depuis my computers ligne 152: "+JSON.stringify(data));
 
         this.pcs=data
+        // this.myPcs=data
+        console.log("current product: "+JSON.stringify(this.myPcs[0]));
 
           this.gestion.onGetUser().subscribe((user)=>{
             this.user=user

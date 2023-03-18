@@ -5,13 +5,14 @@
         <div class="card mx-auto col" style="width: 30remx;min-height: 30rem;" >
             <img [src]="pc.image"   >
             <div class="card-body">
-             <!-- <p>{{pc.userId}} </p> -->
-                 <p  > <b>Computer's Id :</b>{{pc.id}}</p>
-                 <p > <b>name :</b>{{pc.nom}}</p>
+<!--              <p>{{pc.acteur.id}} </p>-->
+<!--              <p>{{pc.userId}} </p>-->
+<!--                 <p  > <b>Computer's Id :</b>{{pc.id}}</p>-->
+                 <p > <b>name :</b>{{pc.name}}</p>
                  <p *ngIf="showDetails[i] " > <b>description :</b>{{pc.description}}</p>
-                 <p > <b>quantity :</b>{{pc.quantity}} pieces left</p>
+                 <p > <b>quantity :</b>{{pc.quantite}} pieces left</p>
                  <p > <b>price :</b>{{pc.prix | prixDinar}}</p>
-                 <button class="btn btn-primary"  routerLink="/updateComputer/{{pc.id}} " (click)="onSendId(pc.id) " style="margin-right: 10px;float: right;" >Edit </button>
+                 <button class="btn btn-primary"  routerLink="/updateComputer/{{pc.idProduit}} " (click)="onSendId(pc.idProduit) " style="margin-right: 10px;float: right;" >Edit </button>
                  <button class="btn btn-info" (click)="onShowDetails(i)"><span *ngIf="!showDetails[i] " style="float: right;">Show</span><span *ngIf="showDetails[i]">Hide</span> Details</button>
             </div>
         </div>

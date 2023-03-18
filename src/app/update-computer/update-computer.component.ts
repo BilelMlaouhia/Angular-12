@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { pcGamer } from '../pc.interface';
 import { GestionService } from '../services/gestion.service';
 
+
 @Component({
   selector: 'app-update-computer',
   templateUrl: './update-computer.component.html',
@@ -25,19 +26,8 @@ export class UpdateComputerComponent implements OnInit {
   public hide_button=true
 
 
-   constructor(private http:HttpClient,private gestion:GestionService,private ActiveRoute:ActivatedRoute,
-     private formBuilder:FormBuilder, private router:Router) {
-
-   this.ActiveRoute.queryParamMap.subscribe(parmas=>{
-     console.log("from constructor active Route "+JSON.stringify(parmas));
-        })
-        console.log("before looking line 40 formgroup "+this.formGroupComputer.value.nom);
-
-
-   this.currentId=this.gestion.computerIdNow
-
-
-
+   constructor(private http:HttpClient,private gestion:GestionService,private ActiveRoute:ActivatedRoute, private formBuilder:FormBuilder, private router:Router) {
+         this.currentId=this.gestion.computerIdNow
    }
 
    formGroupComputer:FormGroup = this.formBuilder.group({
@@ -47,44 +37,42 @@ export class UpdateComputerComponent implements OnInit {
      quantity:[0,[Validators.required]],
      description:["",[Validators.required,Validators.minLength(20)]],
      image:["",Validators.required],
-     userId:[0,Validators.required]
+     userId:[0,Validators.required],
+     acteur:[{}]
   })
 
 
 
    ngOnInit(): void {
 
-    this.showPcId()
-    this.onGetComputers().then(data=>{
+    this.gestion.onGetProduitById(this.currentId).subscribe((data:any)=>{
       console.log("the data from updateComputer "+JSON.stringify(data));
-
       let d:any={}
       d=data
      this. formGroupComputer.setValue({
-       id:d.id,
-       nom:d.nom,
+       id:d.idProduit,
+       nom:d.name,
        prix:d.prix,
-       quantity:d.quantity,
+       quantity:d.quantite,
        description:d.description,
        image:d.image,
-       userId:d.userId
-
+       userId:d.acteur.id,
+       acteur:d.acteur     })
      })
-     })
-
    }
 
    getComputerById(data:any){
     let d=data
 
      this.formGroupComputer=this.formBuilder.group({
-     id:[d.id],
-     nom:[d.nom],
+     id:[d.idProduit],
+     nom:[d.name],
      prix:[d.prix],
-     quantity:[d.quantity],
+     quantity:[d.quantite],
      description:[d.description],
      image:[d.image],
-     userId:[d.userId]
+     userId:[d.acteur.id],
+       acteur:[d.acteur]
 
   })}
 
@@ -94,7 +82,7 @@ export class UpdateComputerComponent implements OnInit {
         this.gestion.ongetComputers().subscribe(pc=>{
           this.computers=pc
           for(let i=0;i< this.computers.length;i++){
-           if(this.computers[i].id==this.currentId) {
+           if(this.computers[i].id===this.currentId) {
              this.need=this.computers[i]}
 
           }
@@ -103,41 +91,24 @@ export class UpdateComputerComponent implements OnInit {
          else reject('can not find item line 67 update computer .ts')
        })
        })
-
-
    }
-
-
-
 
    onUpdateComputer(){
 
-     let url="http://localhost:3000/computers/"+this.formGroupComputer.value.id
-
-        this.http.put(url,this.formGroupComputer.value).subscribe(data=>{
-       console.log("updating done correctly "+data);
-       this.pcUpdated=true
-       setInterval(()=>{
+    this.gestion.onUpdateProduit(this.formGroupComputer.value).subscribe(data=>{
+      console.log("updating done correctly "+data);
+      this.pcUpdated=true
+      setInterval(()=>{
         this.router.navigate(['/mycomputers'])
-        },600)
-       })
-
-
+      },600)
+    })
     }
-
-   showPcId(){
-     console.log("the current id from update.ts id= " +this.currentId);
-
-   }
-
-
-
 
    deleteComputer(f:any){
 
      new Promise((resolve,reject)=>{
-      let uri="http://localhost:3000/computers/"+f.id
-      this.http.delete(uri).subscribe(done=>{
+      let uri="http://localhost:8082/produit/delete/"+f.id
+      this.http.get(uri).subscribe(done=>{
         console.log("item deleted succefully ");
         resolve("item deleted succefully")
 

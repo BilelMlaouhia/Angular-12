@@ -56,24 +56,25 @@ console.log("from onGetImage method "+this.selectedFile);
       image:formValues.image,
       name:formValues.name,
       prix:formValues.price,
-      quantity:formValues.quantity,
+      quantite:formValues.quantity,
       num_imei:formValues.special,
       pross_pc:formValues.special,
-      acteur_id:userId
+      acteurIdNumber:userId
 
     }
-  //   let t="Mob"
-  //   if(formValues.type.value=='Computer') t="Pc"
-  // this.http.put("http://localhost:8082/produit/ajout"+t , prod).toPromise().then(data=>{
-  //   console.log("done posting "+data);
-  //   this.added=true
+    let t="Mob"
+    t="Pc"
+    if(formValues.value=='Computer') t="Pc"
+  this.http.put("http://localhost:8082/produit/ajout"+t , prod).toPromise().then(data=>{
+    console.log("done posting "+data);
+    this.added=true
 
-  // }).then(()=>{
-  //   setInterval(()=>{
-  //   this.router.navigateByUrl('/accueil')
+  }).then(()=>{
+    setInterval(()=>{
+    this.router.navigateByUrl('/accueil')
 
-  //   },1000)
-  // }).catch(err=>err)
+    },1000)
+  }).catch(err=>err)
   console.log("valeur de type est: "+JSON.stringify(formValues));
 
 

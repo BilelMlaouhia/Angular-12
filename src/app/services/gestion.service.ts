@@ -43,18 +43,26 @@ lengthChosen$ =  new Subject<number>()
   ongetComputers():Observable<pcGamer[]>{
     return this.http.get<pcGamer[]>(this.url_computer+"/all")
   }
+  onGetProduitById(id:number):Observable<any>{
+  return this.http.get<any>(this.url_computer+"/"+id)
+  }
 
+  onUpdateProduit(produit:any):Observable<any>{
+  let prod ={
+    idProduit:produit.id,
+    name:produit.nom,
+    prix:produit.prix,
+    quantite:produit.quantity,
+    description:produit.description,
+    image:produit.image,
+    acteurId:produit.acteur.id,
+
+  }
+    console.log("produit: "+JSON.stringify(prod))
+  return this.http.put(this.url_computer+"/update",prod)
+  }
   onGetUser():Observable<UserInterface[]> {
    return this.http.get<UserInterface[]>(this.url_user)
-  }
-
-  onGetActivetedRoute(){
-    return this.paramsRoute;
-  }
-
-  showId(){
-    console.log("the current id = " +this.computerIdNow);
-
   }
 
   onPostCurrentPage(p:pcGamer[]){

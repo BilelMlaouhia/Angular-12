@@ -173,9 +173,9 @@ if(pageNumber==1){
 
    searchProducts(v:String){
      let recherche = v.toLocaleLowerCase()
-     console.log(recherche);
+     console.log("content to search for "+recherche);
 
-     if(recherche==" "|| recherche==""){
+     if(recherche==" "|| recherche==""||recherche=="  "){
        this.allPages=[]
        this.pcs=[]
       this.pagination()
@@ -187,7 +187,7 @@ if(pageNumber==1){
         this.searchPages=[]
         let j=0
          this.pcs.filter(p=>{
-         if(p.nom.toLocaleLowerCase().indexOf(recherche)!=-1){
+         if(p.name.toLocaleLowerCase().indexOf(recherche)!=-1){
          this.searchPages.push(p)
         }
         this.pcs=this.searchPages

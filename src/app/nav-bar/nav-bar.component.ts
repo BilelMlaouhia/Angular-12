@@ -38,21 +38,13 @@ public allPages:pcGamer[]=[]
      this.okUser=this.userService.okUser
      this.onLogOut()
      this.Ok_or_Not()
-
   }
 
   ngOnInit(): void {
     this.currentUserId=this.userService.currentUser
     this.userService.showing$.subscribe(res=>this.how=res)
     this.gestion.lengthChosen$.subscribe(res=>this.prodNb=res)
-
-
   }
-
-
-
-
-
   onLogOut(){
     localStorage.removeItem('id')
       localStorage.removeItem('verifier')
@@ -60,18 +52,10 @@ public allPages:pcGamer[]=[]
    if(!localStorage.getItem('userId')){
        this.okUser=false
    this.observerStatus=false
-   console.log();
-
    }
-
   }
-
-
-
   getMyProfile(){
-
    this.router.navigateByUrl('/myprofile/'+localStorage.getItem('userId'))
-
   }
 
 
